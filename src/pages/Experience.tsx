@@ -1,172 +1,3 @@
-// import { Container, Typography, Box, Grid, Card, CardContent, Chip, Paper, Divider, List, ListItem, ListItemText } from '@mui/material';
-// import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab';
-
-// const experiences = [
-//   {
-//     year: '2023',
-//     title: 'Senior Developer',
-//     company: 'Tech Corp',
-//     description: [
-//       'Led development of enterprise applications',
-//       'Collaborated with cross-functional teams to design scalable systems',
-//       'Mentored junior developers and conducted code reviews',
-//     ],
-//   },
-//   {
-//     year: '2021',
-//     title: 'Full Stack Developer',
-//     company: 'Digital Solutions',
-//     description: [
-//       'Developed and maintained multiple client projects',
-//       'Integrated third-party APIs to enhance platform functionality',
-//       'Optimized application performance and debugging issues',
-//     ],
-//   },
-//   {
-//     year: '2019',
-//     title: 'Junior Developer',
-//     company: 'StartUp Inc',
-//     description: [
-//       'Started career in web development',
-//       'Assisted in developing and testing front-end features',
-//       'Collaborated with senior developers to learn best practices',
-//     ],
-//   },
-//   {
-//     year: '2022',
-//     title: 'Fellow',
-//     company: `Cansbridge Fellowship`,
-//     description: [
-//       `Selected as one of 27 students out of 1000+ applicants (~3% acceptance rate) awarded a $10,000 grant and invited to
-// become a Fellow. Used the grant to pursue an engineering internship in Asia.`
-//     ]
-//   },
-// ];
-
-// const education = [
-//   {
-//     year: '2020 - 2024',
-//     degree: 'Bachelor of Applied Science in Computer Engineering',
-//     school: `Queen's University`,
-//     description: `Graduated with Dean's List Honors, specialized in Software Engineering`
-//   },
-// ];
-
-// const technologies = {
-//   frontend: ['React', 'TypeScript', 'Material-UI', 'NextJS', 'CSS3', 'HTML5'],
-//   backend: ['Node.js', 'Python', 'Java', 'PostgreSQL', 'MongoDB'],
-//   tools: ['Git', 'Docker', 'AWS', 'Jenkins', 'Jira']
-// };
-
-// const Experience = () => {
-//   return (
-//     <Grid container spacing={4} sx={{ py: 8, px: 16 }}>
-//       {/* Left Panel - Work Experience */}
-//       <Grid item xs={12} md={8}>
-//         <Typography variant="h2" component="h1" gutterBottom>
-//           Experience
-//         </Typography>
-//         <Timeline position="alternate">
-//           {experiences.map((exp, index) => (
-//             <TimelineItem key={index}>
-//               <TimelineSeparator>
-//                 <TimelineDot color="primary" />
-//                 {index < experiences.length - 1 && <TimelineConnector />}
-//               </TimelineSeparator>
-//               <TimelineContent>
-//                 <Box sx={{ p: 2, bgcolor: 'background.paper', borderRadius: 1, boxShadow: 1 }}>
-//                   <Typography variant="h6" component="h3">
-//                     {exp.title}
-//                   </Typography>
-//                   <Typography color="primary">{exp.company}</Typography>
-//                   <Typography variant="subtitle2" color="text.secondary">
-//                     {exp.year}
-//                   </Typography>
-
-//                   {/* Description with Bullet Points */}
-//                   {exp.description.length > 0 ? (
-//                     <List sx={{ mt: 1 }}>
-//                       {exp.description.map((desc, idx) => (
-//                         <ListItem key={idx}>
-//                           <ListItemText primary={desc} />
-//                         </ListItem>
-//                       ))}
-//                     </List>
-//                   ) : (
-//                     <Typography variant="body2" sx={{ mt: 1 }}>
-//                       No description provided.
-//                     </Typography>
-//                   )}
-//                 </Box>
-//               </TimelineContent>
-//             </TimelineItem>
-//           ))}
-//         </Timeline>
-//       </Grid>
-
-//       {/* Right Panel - Education and Technologies stacked vertically */}
-//       <Grid item xs={12} md={4}>
-//         {/* Education Section */}
-//         <Box sx={{ mb: 6 }}>
-//           <Typography variant="h2" component="h1" gutterBottom>
-//             Education
-//           </Typography>
-//           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-//             {education.map((edu, index) => (
-//               <Card key={index} elevation={3}>
-//                 <CardContent>
-//                   <Typography variant="h5" component="h3" gutterBottom>
-//                     {edu.degree}
-//                   </Typography>
-//                   <Typography variant="h6" color="primary" gutterBottom>
-//                     {edu.school}
-//                   </Typography>
-//                   <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-//                     {edu.year}
-//                   </Typography>
-//                   <Typography variant="body1">
-//                     {edu.description}
-//                   </Typography>
-//                 </CardContent>
-//               </Card>
-//             ))}
-//           </Box>
-//         </Box>
-
-//         {/* Technologies Section */}
-//         <Box>
-//           <Typography variant="h2" component="h1" gutterBottom>
-//             Technologies
-//           </Typography>
-//           <Paper elevation={3} sx={{ p: 3 }}>
-//             <Typography variant="h6" gutterBottom>Frontend</Typography>
-//             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
-//               {technologies.frontend.map((tech) => (
-//                 <Chip key={tech} label={tech} color="primary" variant="outlined" />
-//               ))}
-//             </Box>
-
-//             <Typography variant="h6" gutterBottom>Backend</Typography>
-//             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
-//               {technologies.backend.map((tech) => (
-//                 <Chip key={tech} label={tech} color="secondary" variant="outlined" />
-//               ))}
-//             </Box>
-
-//             <Typography variant="h6" gutterBottom>Tools & Platforms</Typography>
-//             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-//               {technologies.tools.map((tech) => (
-//                 <Chip key={tech} label={tech} color="success" variant="outlined" />
-//               ))}
-//             </Box>
-//           </Paper>
-//         </Box>
-//       </Grid>
-//     </Grid>
-//   );
-// };
-
-// export default Experience;
 import { Typography, Box, Grid, Card, CardContent, Chip, Paper, List, ListItem, ListItemText, Skeleton } from '@mui/material';
 import { useState, useEffect } from 'react';
 interface Experience {
@@ -191,33 +22,35 @@ interface Technologies {
 
 const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolve([
   {
+    year: '2024 - Present',
+    title: 'Junior Full-Stack Engineer',
+    company: 'Pivotal Life Sciences',
+    description: [
+      'Curently working.',
+    ],
+  },
+  {
     year: '2023',
-    title: 'Senior Developer',
-    company: 'Tech Corp',
+    title: 'Full-Stack Engineer Intern',
+    company: 'Pivotal Life Sciences',
     description: [
-      'Led development of enterprise applications',
-      'Collaborated with cross-functional teams to design scalable systems',
-      'Mentored junior developers and conducted code reviews',
+      `Executed the development of the application layer for Pivotal’s first AI-enabled investment platform. The platform is now a
+      core internal tool used daily by a team of 35+ people to make investments.`,
+      `Optimized application layer efficiency with a comprehensive architecture comparison & analysis. Built evaluation matrices
+      from scratch. Deployed architecture that minimized cost and maintained max performance (response latency of < 100ms).`,
+      `Developed a robust application layer using a Python backend with the AWS Cloud Development Kit that utilizes Lambda,
+      relational & key-value databases, Cognito for authentication, and a React frontend utilizing a REST API and Material UI.`,
     ],
   },
   {
-    year: '2021',
-    title: 'Full Stack Developer',
-    company: 'Digital Solutions',
+    year: '2022',
+    title: 'Artificial Intelligence Engineer',
+    company: 'MoneyLion',
     description: [
-      'Developed and maintained multiple client projects',
-      'Integrated third-party APIs to enhance platform functionality',
-      'Optimized application performance and debugging issues',
-    ],
-  },
-  {
-    year: '2019',
-    title: 'Junior Developer',
-    company: 'StartUp Inc',
-    description: [
-      'Started career in web development',
-      'Assisted in developing and testing front-end features',
-      'Collaborated with senior developers to learn best practices',
+      'Developed an ETL pipeline for the automation of sanity testing and profiling on MoneyLion’s core AI models.',
+      `Developed a Python program for automatic data extraction and profiling from S3, enabling data-driven testing conditions.
+      The data was then integrated with Snowflake, backing marketing funnel KPIs to boost campaign performance.`,
+      'Utilized AWS, Docker, Kubernetes, Codefresh, Airflow, Snowflake (SQL), Great Expectations, Git, Jira, and Confluence.',
     ],
   },
   {
@@ -228,7 +61,7 @@ const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolv
       `Selected as one of 27 students out of 1000+ applicants (~3% acceptance rate) awarded a $10,000 grant and invited to become a Fellow. Used the grant to pursue an engineering internship in Asia.`
     ]
   },
-]), 1500));
+]), 250));
 
 const fetchEducationData = () => new Promise(resolve => setTimeout(() => resolve([
   {
@@ -237,13 +70,13 @@ const fetchEducationData = () => new Promise(resolve => setTimeout(() => resolve
     school: `Queen's University`,
     description: `Graduated with Dean's List Honors, specialized in Software Engineering`
   },
-]), 1000));
+]), 250));
 
 const fetchTechnologiesData = () => new Promise(resolve => setTimeout(() => resolve({
   frontend: ['React', 'TypeScript', 'Material-UI', 'NextJS', 'CSS3', 'HTML5'],
-  backend: ['Node.js', 'Python', 'Java', 'PostgreSQL', 'MongoDB'],
+  backend: ['AWS', 'Node.js', 'Python', 'PostgreSQL', 'Snowflake'],
   tools: ['Git', 'Docker', 'AWS', 'Jenkins', 'Jira']
-}), 1000));
+}), 250));
 
 const Experience = () => {
   const [experiences, setExperiences] = useState<Experience[] | null>(null);
@@ -251,7 +84,6 @@ const Experience = () => {
   const [technologies, setTechnologies] = useState<Technologies | null>(null);
   
   useEffect(() => {
-    // Simulate async data fetching
     Promise.all([fetchExperienceData(), fetchEducationData(), fetchTechnologiesData()])
       .then(([expData, eduData, techData]) => {
         setExperiences(expData as Experience[]);

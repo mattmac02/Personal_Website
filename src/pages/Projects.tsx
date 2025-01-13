@@ -1,6 +1,7 @@
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Box } from '@mui/material';
+import { Container, Typography, Grid, Card, CardContent, CardMedia, Box, Skeleton } from '@mui/material';
+import { useState, useEffect } from 'react';
 
-const projects = [
+const fetchProjectsData = () => new Promise(resolve => setTimeout(() => resolve([
   {
     title: 'Project 1',
     description: 'A modern web application built with React and TypeScript',
@@ -16,9 +17,20 @@ const projects = [
     description: 'Mobile-first responsive design project',
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80'
   }
-];
+]), 250));
 
 const Projects = () => {
+  const [projects, setProjects] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data fetching
+    fetchProjectsData().then((data) => {
+      setProjects(data);
+      setLoading(false);
+    });
+  }, []);
+
   return (
     <Container maxWidth="lg">
       <Box sx={{ py: 8 }}>
@@ -26,26 +38,40 @@ const Projects = () => {
           Projects
         </Typography>
         <Grid container spacing={4}>
-          {projects.map((project, index) => (
-            <Grid item xs={12} md={4} key={index}>
-              <Card sx={{ height: '100%' }}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={project.image}
-                  alt={project.title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {project.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {project.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+          {loading ? (
+            [1, 2, 3].map((index) => (
+              <Grid item xs={12} md={4} key={index}>
+                <Card sx={{ height: '100%' }}>
+                  <Skeleton variant="rectangular" width="100%" height={200} />
+                  <CardContent>
+                    <Skeleton variant="text" width="80%" height={40} />
+                    <Skeleton variant="text" width="60%" height={30} sx={{ mt: 1 }} />
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))
+          ) : (
+            projects.map((project, index) => (
+              <Grid item xs={12} md={4} key={index}>
+                <Card sx={{ height: '100%' }}>
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={project.image}
+                    alt={project.title}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {project.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {project.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))
+          )}
         </Grid>
       </Box>
     </Container>
