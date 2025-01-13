@@ -189,7 +189,6 @@ interface Technologies {
   tools: string[];
 }
 
-// Mocking async data fetching
 const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolve([
   {
     year: '2023',
@@ -251,7 +250,6 @@ const Experience = () => {
   const [education, setEducation] = useState<Education[] | null>(null);
   const [technologies, setTechnologies] = useState<Technologies | null>(null);
   
-
   useEffect(() => {
     // Simulate async data fetching
     Promise.all([fetchExperienceData(), fetchEducationData(), fetchTechnologiesData()])
@@ -262,7 +260,6 @@ const Experience = () => {
       });
   }, []);
 
-  // Loading skeletons
   const loadingSkeleton = (
     <>
       <Skeleton variant="text" width="80%" height={40} />
@@ -272,28 +269,43 @@ const Experience = () => {
   );
 
   return (
-    <Grid container spacing={4} sx={{ py: 8, px: 16 }}>
-      {/* Left Panel - Work Experience */}
+    <Grid container spacing={4} sx={{ py: { xs: 4, md: 8 }, px: { xs: 2, md: 16 } }}>
       <Grid item xs={12} md={8}>
-        <Typography variant="h2" component="h1" gutterBottom>
+        <Typography 
+          variant="h2" 
+          component="h1" 
+          sx={{ fontSize: { xs: '2rem', md: '3rem' }, mb: 2 }}
+        >
           Experience
         </Typography>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           {experiences === null ? (
-            // Show skeleton loading if experiences are not loaded
             <>{loadingSkeleton}</>
           ) : (
             experiences.map((exp, index) => (
-              <Box key={index} sx={{ p: 2, bgcolor: 'background.paper', borderRadius: 1, boxShadow: 1 }}>
-                <Typography variant="h6" component="h3" gutterBottom>
+              <Box 
+                key={index} 
+                sx={{
+                  p: 2, 
+                  bgcolor: 'background.paper', 
+                  borderRadius: 1, 
+                  boxShadow: 1, 
+                  mb: { xs: 2, md: 3 }
+                }}
+              >
+                <Typography 
+                  variant="h6" 
+                  component="h3" 
+                  sx={{ fontSize: { xs: '1.25rem', md: '1.5rem' } }}
+                >
                   {exp.title}
                 </Typography>
-                <Typography color="primary">{exp.company}</Typography>
-                <Typography variant="subtitle2" color="text.secondary">
+                <Typography color="primary" sx={{ fontSize: { xs: '1rem', md: '1.1rem' } }}>
+                  {exp.company}
+                </Typography>
+                <Typography variant="subtitle2" color="text.secondary" sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                   {exp.year}
                 </Typography>
-
-                {/* Description with Bullet Points */}
                 {exp.description.length > 0 ? (
                   <List sx={{ mt: 1 }}>
                     {exp.description.map((desc, idx) => (
@@ -312,17 +324,17 @@ const Experience = () => {
           )}
         </Box>
       </Grid>
-
-      {/* Right Panel - Education and Technologies stacked vertically */}
       <Grid item xs={12} md={4}>
-        {/* Education Section */}
         <Box sx={{ mb: 6 }}>
-          <Typography variant="h2" component="h1" gutterBottom>
+          <Typography 
+            variant="h2" 
+            component="h1" 
+            sx={{ fontSize: { xs: '2rem', md: '3rem' }, mb: 2 }}
+          >
             Education
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             {education === null ? (
-              // Show skeleton loading if education is not loaded
               <>{loadingSkeleton}</>
             ) : (
               education.map((edu, index) => (
@@ -346,15 +358,16 @@ const Experience = () => {
             )}
           </Box>
         </Box>
-
-        {/* Technologies Section */}
         <Box>
-          <Typography variant="h2" component="h1" gutterBottom>
+          <Typography 
+            variant="h2" 
+            component="h1" 
+            sx={{ fontSize: { xs: '2rem', md: '3rem' }, mb: 2 }}
+          >
             Technologies
           </Typography>
           <Paper elevation={3} sx={{ p: 3 }}>
             {technologies === null ? (
-              // Show skeleton loading if technologies are not loaded
               <>{loadingSkeleton}</>
             ) : (
               <>
@@ -364,18 +377,16 @@ const Experience = () => {
                     <Chip key={tech} label={tech} color="primary" variant="outlined" />
                   ))}
                 </Box>
-
                 <Typography variant="h6" gutterBottom>Backend</Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
                   {technologies.backend.map((tech) => (
                     <Chip key={tech} label={tech} color="secondary" variant="outlined" />
                   ))}
                 </Box>
-
                 <Typography variant="h6" gutterBottom>Tools & Platforms</Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                  {technologies.tools.map((tech) => (
-                    <Chip key={tech} label={tech} color="success" variant="outlined" />
+                  {technologies.tools.map((tool) => (
+                    <Chip key={tool} label={tool} color="default" variant="outlined" />
                   ))}
                 </Box>
               </>
