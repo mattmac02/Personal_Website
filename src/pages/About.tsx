@@ -59,7 +59,6 @@ const About = () => {
               development of extensive testing procedures and feature extractions. I am passionate about building and improving systems in people's everyday lives
               through the use of software. Let's get in touch!
             </Typography>
-
             <Box sx={{ display: 'flex', gap: 3, justifyContent: { xs: 'center', md: 'flex-start' } }}>
               <Github 
                 size={24} 
