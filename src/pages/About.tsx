@@ -9,7 +9,7 @@ const About = () => {
           <Grid item xs={12} md={5}>
             <Box
               component="img"
-              src="./assets/headshot.jpeg"
+              src="/assets/headshot.jpeg"
               sx={{
                 width: '100%',
                 height: 'auto',
