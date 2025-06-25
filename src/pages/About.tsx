@@ -1,16 +1,16 @@
-import { Container, Typography, Box, Grid, Button, Skeleton, Chip } from '@mui/material';
-import { Linkedin, Github, Download, Mail } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { FaReact, FaPython, FaAws, FaDatabase, FaNodeJs, FaDocker } from 'react-icons/fa';
+import { Container, Typography, Box, Grid, Button, Skeleton, Chip } from '@mui/material'
+import { Linkedin, Github, Download, Mail } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { FaReact, FaPython, FaAws, FaDatabase, FaNodeJs, FaDocker } from 'react-icons/fa'
 
 const About = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 250);
-    return () => clearTimeout(timer);
-  }, []);
+      setLoading(false)
+    }, 250)
+    return () => clearTimeout(timer)
+  }, [])
 
   const skills = [
     { name: 'React', icon: <FaReact />, color: 'primary' },
@@ -19,7 +19,7 @@ const About = () => {
     { name: 'Node.js', icon: <FaNodeJs />, color: 'primary' },
     { name: 'Databases', icon: <FaDatabase />, color: 'secondary' },
     { name: 'Docker', icon: <FaDocker />, color: 'default' }
-  ];
+  ]
 
   return (
     <Container maxWidth="lg">
@@ -295,7 +295,7 @@ const About = () => {
         </Grid>
       </Box>
     </Container>
-  );
-};
+  )
+}
 
-export default About;
+export default About

@@ -1,40 +1,40 @@
-import { Typography, Box, Grid, Card, CardContent, Chip, Paper, List, ListItem, ListItemText, Skeleton, Link, IconButton, Collapse } from '@mui/material';
-import { useState, useEffect } from 'react';
-import { FaChevronDown, FaChevronUp, FaGamepad, FaMusic, FaUsers, FaGraduationCap, FaTrophy, FaBrain, FaCode, FaHeart, FaRunning } from 'react-icons/fa';
+import { Typography, Box, Grid, Card, CardContent, Chip, Paper, List, ListItem, ListItemText, Skeleton, Link, IconButton, Collapse } from '@mui/material'
+import { useState, useEffect } from 'react'
+import { FaChevronDown, FaChevronUp, FaGamepad, FaUsers, FaTrophy, FaBrain, FaCode, FaRunning, FaBasketballBall, FaSwimmer, FaUserNinja } from 'react-icons/fa'
 
 interface Experience {
-  year: string;
-  title: string;
-  company: string;
-  location: string;
-  description: string[];
-  website?: string;
+  year: string
+  title: string
+  company: string
+  location: string
+  description: string[]
+  website?: string
 }
 
 interface Education {
-  year: string;
-  degree: string;
-  school: string;
-  location: string;
-  description: string;
+  year: string
+  degree: string
+  school: string
+  location: string
+  description: string
 }
 
 interface Extracurricular {
-  id: string;
-  title: string;
-  category: 'sports' | 'music' | 'leadership' | 'academic' | 'community' | 'hobbies';
-  icon: React.ReactNode;
-  year: string;
-  description: string;
-  achievements: string[];
-  skills: string[];
-  expanded?: boolean;
+  id: string
+  title: string
+  category: 'sports' | 'music' | 'leadership' | 'academic' | 'community' | 'hobbies'
+  icon: React.ReactNode
+  year: string
+  description: string
+  achievements: string[]
+  skills: string[]
+  expanded?: boolean
 }
 
 interface Technologies {
-  frontend: string[];
-  backend: string[];
-  tools: string[];
+  frontend: string[]
+  backend: string[]
+  tools: string[]
 }
 
 const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolve([
@@ -86,7 +86,7 @@ const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolv
       `Selected as one of 27 students out of 1000+ applicants (~3% acceptance rate) awarded a $10,000 grant and invited to become a Fellow. Used the grant to pursue an engineering internship in Asia.`
     ]
   },
-]), 250));
+]), 250))
 
 const fetchEducationData = () => new Promise(resolve => setTimeout(() => resolve([
   {
@@ -96,145 +96,108 @@ const fetchEducationData = () => new Promise(resolve => setTimeout(() => resolve
     location: 'Kingston, ON',
     description: `Graduated with Dean's List Honors, specialized in Software Engineering`
   },
-]), 250));
+]), 250))
 
 const fetchTechnologiesData = () => new Promise(resolve => setTimeout(() => resolve({
   frontend: ['React', 'TypeScript', 'Material-UI', 'NextJS', 'CSS3', 'HTML5'],
   backend: ['AWS', 'Node.js', 'Python', 'PostgreSQL', 'Snowflake'],
   tools: ['Airflow', 'Git', 'Docker', 'AWS', 'Jenkins', 'Jira']
-}), 250));
+}), 250))
 
 const fetchExtracurricularData = () => new Promise(resolve => setTimeout(() => resolve([
   {
     id: '1',
-    title: 'Varsity Basketball Team Captain',
+    title: 'District All-Star & Team Captain',
     category: 'sports' as const,
-    icon: <FaRunning />,
-    year: '2020 - 2024',
-    description: 'Led the university basketball team to two conference championships while maintaining academic excellence.',
+    icon: <FaBasketballBall />,
+    year: '2016 - 2020',
+    description: 'Led my basketball team to multiple provincial championships while maintaining academic excellence.',
     achievements: [
-      'Team Captain for 3 consecutive years',
-      'Led team to 2 conference championships',
-      'Academic All-Conference selection',
-      'Mentored 15+ junior players'
+      'Team Captain for 4 consecutive years',
+      'Led team to 2 provincial championships',
+      '4 time District All-Star selection',
+      '4 time Team Captain',
     ],
-    skills: ['Leadership', 'Team Management', 'Strategic Planning', 'Communication', 'Time Management']
+    skills: ['Leadership', 'Team Management', 'Communication', 'Time Management']
   },
   {
     id: '2',
-    title: 'University Coding Club President',
-    category: 'leadership' as const,
+    title:  `Queen's Technology and Media Club President`,
+    category: 'technical' as const,
     icon: <FaCode />,
-    year: '2022 - 2024',
-    description: 'Founded and led a 50+ member coding club focused on practical software development skills.',
+    year: '2023 - 2024',
+    description: `Directly manage 50 students and a $20,000 budget, directing 4 cross-functional product teams building and launching software products.`,
     achievements: [
-      'Organized 20+ workshops and hackathons',
-      'Increased membership from 15 to 50+ students',
-      'Partnered with 5 local tech companies',
-      'Launched mentorship program for 30+ students'
+      'Managed 40+ students and a $20,000 budget',
+      'Directed 4 cross-functional product teams',
+      'Successfully launched 2 software products',
+      'Partnered with local businesses to build software products for the university community',
     ],
-    skills: ['Project Management', 'Event Planning', 'Public Speaking', 'Networking', 'Technical Mentoring']
-  },
-  {
-    id: '3',
-    title: 'Jazz Band Saxophonist',
-    category: 'music' as const,
-    icon: <FaMusic />,
-    year: '2021 - 2024',
-    description: 'Performed with the university jazz ensemble and participated in multiple music festivals.',
-    achievements: [
-      'Featured soloist at 3 university concerts',
-      'Performed at 2 regional jazz festivals',
-      'Recorded 2 albums with the ensemble',
-      'Taught music theory to 10+ students'
-    ],
-    skills: ['Musical Performance', 'Collaboration', 'Creativity', 'Teaching', 'Stage Presence']
+    skills: ['Project Management',  'Technical Mentoring', 'Event Planning', 'Networking']
   },
   {
     id: '4',
-    title: 'Mental Health Advocacy Group',
-    category: 'community' as const,
-    icon: <FaHeart />,
+    title: 'Brazilian Jiu-Jitsu Club',
+    category: 'sports' as const,
+    icon: <FaUserNinja />,
     year: '2022 - 2024',
-    description: 'Co-founded a student-led mental health awareness and support group on campus.',
+    description: 'Participated in Brazilian Jiu-Jitsu club for 2 years, achieving a white belt.',
     achievements: [
-      'Organized 12 mental health awareness events',
-      'Provided peer support to 100+ students',
-      'Raised $5,000 for mental health initiatives',
-      'Collaborated with university counseling services'
+      'Achieved a white belt',
+      'Competed in 2 tournaments',
     ],
-    skills: ['Empathy', 'Active Listening', 'Event Organization', 'Fundraising', 'Mental Health Advocacy']
+    skills: ['Skill Adoption', 'Eagerness to Learn']
   },
   {
     id: '5',
-    title: 'Competitive Programming Team',
-    category: 'academic' as const,
-    icon: <FaBrain />,
+    title: 'Advanced Open Water Scuba Diver',
+    category: 'sports' as const,
+    icon: <FaSwimmer />,
     year: '2021 - 2024',
-    description: 'Competed in regional and national programming competitions, solving complex algorithmic challenges.',
+    description: 'Completed the Advanced Open Water Scuba Diver course, achieving a certification to dive up to 100 feet.',
     achievements: [
-      'Top 10 finish in 3 regional competitions',
-      'Qualified for ACM-ICPC regional finals',
-      'Mentored 20+ students in algorithms',
-      'Organized 5 internal coding competitions'
+      'Completed the Advanced Open Water Scuba Diver course',
+      'Achieved a maximum dive depth of 100 feet',
     ],
-    skills: ['Algorithm Design', 'Problem Solving', 'Competitive Programming', 'Teaching', 'Analytical Thinking']
+    skills: ['Skill Adoption', 'Adventure']
   },
-  {
-    id: '6',
-    title: 'Esports Team Manager',
-    category: 'hobbies' as const,
-    icon: <FaGamepad />,
-    year: '2022 - 2024',
-    description: 'Managed the university esports team, coordinating tournaments and team strategies.',
-    achievements: [
-      'Led team to 2 regional tournament victories',
-      'Managed 25+ players across 5 games',
-      'Organized 8 inter-university tournaments',
-      'Increased team sponsorship by 300%'
-    ],
-    skills: ['Team Management', 'Strategic Planning', 'Tournament Organization', 'Sponsorship', 'Gaming Strategy']
-  }
-]), 250));
+]), 250))
 
 const Experience = () => {
-  const [experiences, setExperiences] = useState<Experience[] | null>(null);
-  const [education, setEducation] = useState<Education[] | null>(null);
-  const [technologies, setTechnologies] = useState<Technologies | null>(null);
-  const [extracurriculars, setExtracurriculars] = useState<Extracurricular[] | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [experiences, setExperiences] = useState<Experience[] | null>(null)
+  const [education, setEducation] = useState<Education[] | null>(null)
+  const [technologies, setTechnologies] = useState<Technologies | null>(null)
+  const [extracurriculars, setExtracurriculars] = useState<Extracurricular[] | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string>('all')
 
   useEffect(() => {
     Promise.all([fetchExperienceData(), fetchEducationData(), fetchTechnologiesData(), fetchExtracurricularData()])
       .then(([expData, eduData, techData, extracurricularsData]) => {
-        setExperiences(expData as Experience[]);
-        setEducation(eduData as Education[]);
-        setTechnologies(techData as Technologies);
-        setExtracurriculars(extracurricularsData as Extracurricular[]);
-      });
-  }, []);
+        setExperiences(expData as Experience[])
+        setEducation(eduData as Education[])
+        setTechnologies(techData as Technologies)
+        setExtracurriculars(extracurricularsData as Extracurricular[])
+      })
+  }, [])
 
   const handleExtracurricularToggle = (id: string) => {
     if (extracurriculars) {
       setExtracurriculars(extracurriculars.map(item =>
         item.id === id ? { ...item, expanded: !item.expanded } : item
-      ));
+      ))
     }
-  };
+  }
 
   const filteredExtracurriculars = extracurriculars?.filter(item =>
     selectedCategory === 'all' || item.category === selectedCategory
-  );
+  )
 
   const categories = [
     { key: 'all', label: 'All Activities', icon: <FaUsers /> },
+    { key: 'technical', label: 'Technical', icon: <FaCode /> },
     { key: 'sports', label: 'Sports', icon: <FaRunning /> },
-    { key: 'leadership', label: 'Leadership', icon: <FaGraduationCap /> },
-    { key: 'music', label: 'Music', icon: <FaMusic /> },
-    { key: 'community', label: 'Community', icon: <FaHeart /> },
-    { key: 'academic', label: 'Academic', icon: <FaBrain /> },
     { key: 'hobbies', label: 'Hobbies', icon: <FaGamepad /> }
-  ];
+  ]
 
   const loadingSkeleton = (
     <>
@@ -242,7 +205,7 @@ const Experience = () => {
       <Skeleton variant="text" width="60%" height={30} />
       <Skeleton variant="rectangular" width="100%" height={150} sx={{ mt: 2 }} />
     </>
-  );
+  )
 
   return (
     <Grid container spacing={3} sx={{ py: { xs: 3, md: 6 }, px: { xs: 2, md: 12 } }}>
@@ -672,6 +635,7 @@ const Experience = () => {
                 sx={{
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
+                  p: 2,
                   fontSize: '0.75rem',
                   '&:hover': {
                     transform: 'translateY(-1px)',
@@ -898,7 +862,7 @@ const Experience = () => {
         </Box>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

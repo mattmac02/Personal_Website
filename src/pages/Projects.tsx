@@ -1,15 +1,15 @@
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Box, Skeleton, Chip } from '@mui/material';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FaExternalLinkAlt, FaGithub, FaCode } from 'react-icons/fa';
+import { Container, Typography, Grid, Card, CardContent, CardMedia, Box, Skeleton, Chip } from '@mui/material'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { FaExternalLinkAlt, FaGithub, FaCode } from 'react-icons/fa'
 
 interface Project {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
-  technologies?: string[];
-  githubUrl?: string;
+  title: string
+  description: string
+  image: string
+  url: string
+  technologies?: string[]
+  githubUrl?: string
 }
 
 const fetchProjectsData = (): Promise<Project[]> => new Promise(resolve => setTimeout(() => resolve([
@@ -35,19 +35,19 @@ const fetchProjectsData = (): Promise<Project[]> => new Promise(resolve => setTi
     url: '/projects/portfolio',
     technologies: ['React', 'TypeScript', 'Material-UI', 'Vite']
   }
-]), 250));
+]), 250))
 
 const Projects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     // Simulate data fetching
     fetchProjectsData().then((data) => {
-      setProjects(data);
-      setLoading(false);
-    });
-  }, []);
+      setProjects(data)
+      setLoading(false)
+    })
+  }, [])
 
   return (
     <Container maxWidth="lg">
@@ -378,7 +378,7 @@ const Projects = () => {
         </Grid>
       </Box>
     </Container>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
