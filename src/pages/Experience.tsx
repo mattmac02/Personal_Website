@@ -429,7 +429,7 @@ const Experience = () => {
                   }}
                 >
                   <CardContent sx={{ p: 2.5 }}>
-                    <Typography  component="h3" gutterBottom sx={{ fontWeight: 600, color: 'text.primary', fontSize: { xs: '1.1rem', md: '1.3rem' },}}>
+                    <Typography component="h3" gutterBottom sx={{ fontWeight: 600, color: 'text.primary', fontSize: { xs: '1.1rem', md: '1.3rem' }, }}>
                       {edu.degree}
                     </Typography>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 0.5 }}>
