@@ -1,6 +1,6 @@
 import { Typography, Box, Grid, Card, CardContent, Chip, Paper, List, ListItem, ListItemText, Skeleton, Link, IconButton, Collapse } from '@mui/material'
 import { useState, useEffect } from 'react'
-import { FaChevronDown, FaChevronUp, FaGamepad, FaUsers, FaTrophy, FaBrain, FaCode, FaRunning, FaBasketballBall, FaSwimmer, FaUserNinja } from 'react-icons/fa'
+import { FaChevronDown, FaChevronUp, FaGamepad, FaUsers, FaTrophy, FaBrain, FaCode, FaRunning, FaBasketballBall, FaSwimmer, FaUserNinja, FaVolleyballBall } from 'react-icons/fa'
 
 interface Experience {
   year: string
@@ -122,21 +122,20 @@ const fetchExtracurricularData = () => new Promise(resolve => setTimeout(() => r
   },
   {
     id: '2',
-    title:  `Queen's Technology and Media Club President`,
-    category: 'technical' as const,
-    icon: <FaCode />,
-    year: '2023 - 2024',
-    description: `Directly manage 50 students and a $20,000 budget, directing 4 cross-functional product teams building and launching software products.`,
+    title: 'All-Star & Team Captain',
+    category: 'sports' as const,
+    icon: <FaVolleyballBall />,
+    year: '2021 - 2024',
+    description: 'Led my volleyball team to multiple district and provincial championships while maintaining academic excellence.',
     achievements: [
-      'Managed 40+ students and a $20,000 budget',
-      'Directed 4 cross-functional product teams',
-      'Successfully launched 2 software products',
-      'Partnered with local businesses to build software products for the university community',
+      'Placed 3rd in the province',
+      'District All-Star selection',
+      'Team Captain for 2 consecutive years',
     ],
-    skills: ['Project Management',  'Technical Mentoring', 'Event Planning', 'Networking']
+    skills: ['Leadership', 'Team Management', 'Communication', 'Time Management']
   },
   {
-    id: '4',
+    id: '3',
     title: 'Brazilian Jiu-Jitsu Club',
     category: 'sports' as const,
     icon: <FaUserNinja />,
@@ -149,7 +148,7 @@ const fetchExtracurricularData = () => new Promise(resolve => setTimeout(() => r
     skills: ['Skill Adoption', 'Eagerness to Learn']
   },
   {
-    id: '5',
+    id: '4',
     title: 'Advanced Open Water Scuba Diver',
     category: 'sports' as const,
     icon: <FaSwimmer />,
@@ -160,6 +159,21 @@ const fetchExtracurricularData = () => new Promise(resolve => setTimeout(() => r
       'Achieved a maximum dive depth of 100 feet',
     ],
     skills: ['Skill Adoption', 'Adventure']
+  },
+  {
+    id: '5',
+    title:  `Queen's Technology and Media Club President`,
+    category: 'technical' as const,
+    icon: <FaCode />,
+    year: '2023 - 2024',
+    description: `Directly manage 50 students and a $20,000 budget, directing 4 cross-functional product teams building and launching software products.`,
+    achievements: [
+      'Managed 40+ students and a $20,000 budget',
+      'Directed 4 cross-functional product teams',
+      'Successfully launched 2 software products',
+      'Partnered with local businesses to build software products for the university community',
+    ],
+    skills: ['Project Management',  'Technical Mentoring', 'Event Planning', 'Networking']
   },
 ]), 250))
 
