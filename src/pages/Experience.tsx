@@ -40,6 +40,16 @@ interface Technologies {
 const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolve([
   {
     year: '2024 - Present',
+    title: 'Full-Stack Engineer',
+    location: 'San Francisco, CA',
+    company: 'Pivotal Life Sciences',
+    website: 'https://pivotallifesciences.com',
+    description: [
+      'Currently working on the development of a new AI-powered investment platform for Pivotal Life Sciences.',
+    ],
+  },
+  {
+    year: '2024 - Present',
     title: 'Junior Full-Stack Engineer',
     location: 'San Francisco, CA',
     company: 'Pivotal Life Sciences',
@@ -250,134 +260,190 @@ const Experience = () => {
             {experiences === null ? (
               <>{loadingSkeleton}</>
             ) : (
-              experiences.map((exp, index) => (
-                <Card
-                  key={index}
-                  sx={{
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer',
-                    '&:hover': {
-                      transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 12px rgba(33, 150, 243, 0.08), 0 2px 4px rgba(0,0,0,0.06)',
-                      borderColor: 'primary.main'
-                    },
-                    border: '1px solid',
-                    borderColor: 'rgba(33, 150, 243, 0.08)',
-                    background: 'linear-gradient(145deg, #ffffff 0%, #fafbfc 50%, #ffffff 100%)',
-                    borderRadius: 1.5,
-                    position: 'relative',
-                    overflow: 'visible',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: '2px',
-                      background: 'linear-gradient(90deg, #2196f3 0%, #1976d2 100%)',
-                      borderRadius: '6px 6px 0 0'
-                    }
-                  }}
-                >
-                  <CardContent sx={{ p: 2.5 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 1.5 }}>
-                      <Box sx={{ flex: 1 }}>
-                        <Typography
-                          variant="h5"
-                          component="h3"
-                          sx={{
-                            fontSize: { xs: '1.1rem', md: '1.3rem' },
-                            fontWeight: 600,
-                            color: 'text.primary',
-                            mb: 0.5
-                          }}
-                        >
-                          {exp.title}
-                        </Typography>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 0.5 }}>
-                          {exp.website ? (
-                            <Link
-                              href={exp.website}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              color="primary"
+              experiences.map((exp, index) => {
+                const isSameCompany = index > 0 && experiences[index - 1].company === exp.company
+                const isLastInCompany = index === experiences.length - 1 || experiences[index + 1].company !== exp.company
+
+                return (
+                  <Box key={index} sx={{ position: 'relative' }}>
+                    {/* Connecting line for same company progression */}
+                    {isSameCompany && (
+                      <Box sx={{
+                        position: 'absolute',
+                        left: 16,
+                        top: -16,
+                        width: 2,
+                        height: 16,
+                        background: 'linear-gradient(180deg, #2196f3 0%, rgba(33, 150, 243, 0.3) 100%)',
+                        zIndex: 1
+                      }} />
+                    )}
+
+                    {/* Continuation line for ongoing progression */}
+                    {!isLastInCompany && exp.company === experiences[index + 1].company && (
+                      <Box sx={{
+                        position: 'absolute',
+                        left: 16,
+                        bottom: -16,
+                        width: 2,
+                        height: 16,
+                        background: 'linear-gradient(180deg, rgba(33, 150, 243, 0.3) 0%, #2196f3 100%)',
+                        zIndex: 1
+                      }} />
+                    )}
+
+                    <Card
+                      sx={{
+                        transition: 'all 0.3s ease',
+                        cursor: 'pointer',
+                        '&:hover': {
+                          transform: 'translateY(-2px)',
+                          boxShadow: '0 4px 12px rgba(33, 150, 243, 0.08), 0 2px 4px rgba(0,0,0,0.06)',
+                          borderColor: 'primary.main'
+                        },
+                        border: '1px solid',
+                        borderColor: isSameCompany ? 'rgba(33, 150, 243, 0.15)' : 'rgba(33, 150, 243, 0.08)',
+                        background: isSameCompany
+                          ? 'linear-gradient(145deg, #ffffff 0%, #f8fbff 50%, #ffffff 100%)'
+                          : 'linear-gradient(145deg, #ffffff 0%, #fafbfc 50%, #ffffff 100%)',
+                        borderRadius: 1.5,
+                        position: 'relative',
+                        overflow: 'visible',
+                        '&::before': {
+                          content: '""',
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          height: '2px',
+                          background: isSameCompany
+                            ? 'linear-gradient(90deg, #2196f3 0%, #1976d2 50%, #2196f3 100%)'
+                            : 'linear-gradient(90deg, #2196f3 0%, #1976d2 100%)',
+                          borderRadius: '6px 6px 0 0'
+                        }
+                      }}
+                    >
+                      <CardContent sx={{ p: 2.5 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 1.5 }}>
+                          <Box sx={{ flex: 1 }}>
+                            <Typography
+                              variant="h5"
+                              component="h3"
                               sx={{
-                                fontSize: { xs: '0.9rem', md: '1rem' },
-                                textDecoration: 'none',
+                                fontSize: { xs: '1.1rem', md: '1.3rem' },
                                 fontWeight: 600,
-                                '&:hover': {
-                                  textDecoration: 'underline'
-                                }
+                                color: 'text.primary',
+                                mb: 0.5
                               }}
                             >
-                              {exp.company}
-                            </Link>
-                          ) : (
+                              {exp.title}
+                            </Typography>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 0.5 }}>
+                              {exp.website ? (
+                                <Link
+                                  href={exp.website}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  color="primary"
+                                  sx={{
+                                    fontSize: { xs: '0.9rem', md: '1rem' },
+                                    textDecoration: 'none',
+                                    fontWeight: 600,
+                                    '&:hover': {
+                                      textDecoration: 'underline'
+                                    }
+                                  }}
+                                >
+                                  {exp.company}
+                                </Link>
+                              ) : (
+                                <Typography
+                                  color="primary"
+                                  sx={{
+                                    fontSize: { xs: '0.9rem', md: '1rem' },
+                                    fontWeight: 600
+                                  }}
+                                >
+                                  {exp.company}
+                                </Typography>
+                              )}
+                              <Typography
+                                color="text.secondary"
+                                sx={{
+                                  fontSize: { xs: '0.7rem', md: '0.85rem' },
+                                }}
+                              >
+                                • {exp.location}
+                              </Typography>
+                            </Box>
                             <Typography
-                              color="primary"
+                              variant="subtitle2"
+                              color="text.primary"
                               sx={{
-                                fontSize: { xs: '0.9rem', md: '1rem' },
+                                fontSize: { xs: '0.8rem', md: '0.9rem' },
                                 fontWeight: 600
                               }}
                             >
-                              {exp.company}
+                              {exp.year}
                             </Typography>
-                          )}
-                          <Typography
-                            color="text.secondary"
-                            sx={{
-                              fontSize: { xs: '0.7rem', md: '0.85rem' },
-                            }}
-                          >
-                            • {exp.location}
-                          </Typography>
-                        </Box>
-                        <Typography
-                          variant="subtitle2"
-                          color="text.primary"
-                          sx={{
-                            fontSize: { xs: '0.8rem', md: '0.9rem' },
-                            fontWeight: 600
-                          }}
-                        >
-                          {exp.year}
-                        </Typography>
-                      </Box>
-                    </Box>
+                          </Box>
 
-                    {exp.description.length > 0 ? (
-                      <List sx={{ mt: 1.5, listStyleType: 'disc', pl: 1.5 }}>
-                        {exp.description.map((desc, idx) => (
-                          <ListItem key={idx} sx={{
-                            display: 'list-item',
-                            pl: 0,
-                            py: 0.25,
-                            '&::marker': {
-                              color: 'primary.main',
-                              fontWeight: 'bold'
-                            }
-                          }}>
-                            <ListItemText
-                              primary={desc}
-                              sx={{
-                                '& .MuiListItemText-primary': {
-                                  fontSize: '0.85rem',
-                                  lineHeight: 1.5,
-                                  color: 'text.secondary'
+                          {/* Career progression indicator */}
+                          {isSameCompany && (
+                            <Box sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 0.5,
+                              px: 1.5,
+                              py: 0.5,
+                              backgroundColor: 'rgba(33, 150, 243, 0.08)',
+                              borderRadius: 1,
+                              border: '1px solid',
+                              borderColor: 'rgba(33, 150, 243, 0.15)',
+                              fontSize: '0.7rem',
+                              fontWeight: 600,
+                              color: 'primary.main'
+                            }}>
+                              ↑ Promotion
+                            </Box>
+                          )}
+                        </Box>
+
+                        {exp.description.length > 0 ? (
+                          <List sx={{ mt: 1.5, listStyleType: 'disc', pl: 1.5 }}>
+                            {exp.description.map((desc, idx) => (
+                              <ListItem key={idx} sx={{
+                                display: 'list-item',
+                                pl: 0,
+                                py: 0.25,
+                                '&::marker': {
+                                  color: 'primary.main',
+                                  fontWeight: 'bold'
                                 }
-                              }}
-                            />
-                          </ListItem>
-                        ))}
-                      </List>
-                    ) : (
-                      <Typography variant="body2" sx={{ mt: 1.5, fontStyle: 'italic', color: 'text.secondary' }}>
-                        No description provided.
-                      </Typography>
-                    )}
-                  </CardContent>
-                </Card>
-              ))
+                              }}>
+                                <ListItemText
+                                  primary={desc}
+                                  sx={{
+                                    '& .MuiListItemText-primary': {
+                                      fontSize: '0.85rem',
+                                      lineHeight: 1.5,
+                                      color: 'text.secondary'
+                                    }
+                                  }}
+                                />
+                              </ListItem>
+                            ))}
+                          </List>
+                        ) : (
+                          <Typography variant="body2" sx={{ mt: 1.5, fontStyle: 'italic', color: 'text.secondary' }}>
+                            No description provided.
+                          </Typography>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </Box>
+                )
+              })
             )}
           </Box>
         </Box>

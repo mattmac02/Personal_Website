@@ -1,24 +1,24 @@
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Menu } from 'lucide-react';
-import { useState } from 'react';
+import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem } from '@mui/material'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { Menu } from 'lucide-react'
+import { useState } from 'react'
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate()
+  const location = useLocation()
+  const [mobileOpen, setMobileOpen] = useState(false)
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location.pathname === path
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+    setMobileOpen(!mobileOpen)
+  }
 
   const menuItems = [
     { text: 'About', path: '/' },
     { text: 'Projects', path: '/projects' },
     { text: 'Experience', path: '/experience' },
-  ];
+  ]
 
   const drawer = (
     <List>
@@ -26,8 +26,8 @@ const Navbar = () => {
         <ListItem
           key={item.path}
           onClick={() => {
-            navigate(item.path);
-            handleDrawerToggle();
+            navigate(item.path)
+            handleDrawerToggle()
           }}
           sx={{
             color: isActive(item.path) ? 'primary.main' : 'inherit',
@@ -41,7 +41,7 @@ const Navbar = () => {
         </ListItem>
       ))}
     </List>
-  );
+  )
 
   return (
     <AppBar
@@ -137,7 +137,7 @@ const Navbar = () => {
         {drawer}
       </Drawer>
     </AppBar>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
