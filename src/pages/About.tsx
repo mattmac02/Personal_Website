@@ -239,7 +239,7 @@ const About = () => {
                           transform: 'scale(1.05)'
                         }
                       }}
-                      onClick={() => window.open('https://linkedin.com', '_blank')}
+                      onClick={() => window.open('https://www.linkedin.com/in/matthew-maceachern/', '_blank')}
                     >
                       <Linkedin size={24} style={{ color: '#2196f3' }} />
                     </Box>
@@ -259,7 +259,7 @@ const About = () => {
                           transform: 'scale(1.05)'
                         }
                       }}
-                      onClick={() => window.open('mailto:matthew@example.com', '_blank')}
+                      onClick={() => window.open('mailto:19mam37@queensu.ca', '_blank')}
                     >
                       <Mail size={24} style={{ color: '#2196f3' }} />
                     </Box>

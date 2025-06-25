@@ -150,7 +150,7 @@ const fetchExtracurricularData = () => new Promise(resolve => setTimeout(() => r
   {
     id: '4',
     title: 'Advanced Open Water Scuba Diver',
-    category: 'sports' as const,
+    category: 'hobbies' as const,
     icon: <FaSwimmer />,
     year: '2021 - 2024',
     description: 'Completed the Advanced Open Water Scuba Diver course, achieving a certification to dive up to 100 feet.',
@@ -162,7 +162,7 @@ const fetchExtracurricularData = () => new Promise(resolve => setTimeout(() => r
   },
   {
     id: '5',
-    title:  `Queen's Technology and Media Club President`,
+    title: `Queen's Technology and Media Club President`,
     category: 'technical' as const,
     icon: <FaCode />,
     year: '2023 - 2024',
@@ -173,7 +173,7 @@ const fetchExtracurricularData = () => new Promise(resolve => setTimeout(() => r
       'Successfully launched 2 software products',
       'Partnered with local businesses to build software products for the university community',
     ],
-    skills: ['Project Management',  'Technical Mentoring', 'Event Planning', 'Networking']
+    skills: ['Project Management', 'Technical Mentoring', 'Event Planning', 'Networking']
   },
 ]), 250))
 
@@ -238,23 +238,12 @@ const Experience = () => {
             component="h1"
             sx={{
               fontSize: { xs: '1.75rem', md: '2.5rem' },
-              mb: 0.5,
+              mb: 2,
               color: 'primary.main',
               fontWeight: 600
             }}
           >
             Professional Experience
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              mb: 3,
-              color: 'text.secondary',
-              fontStyle: 'italic',
-              fontSize: '0.9rem'
-            }}
-          >
-            My journey in software engineering and technology
           </Typography>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -410,23 +399,12 @@ const Experience = () => {
             component="h1"
             sx={{
               fontSize: { xs: '1.75rem', md: '2.5rem' },
-              mb: 0.5,
+              mb: 2,
               color: 'primary.main',
               fontWeight: 600
             }}
           >
             Education
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              mb: 2.5,
-              color: 'text.secondary',
-              fontStyle: 'italic',
-              fontSize: '0.9rem'
-            }}
-          >
-            Academic background and achievements
           </Typography>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
@@ -454,18 +432,57 @@ const Experience = () => {
                     <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 600, color: 'text.primary', fontSize: '1.1rem' }}>
                       {edu.degree}
                     </Typography>
-                    <Typography variant="h6" color="primary" gutterBottom sx={{ fontWeight: 600, fontSize: '1rem' }}>
-                      {edu.school}
-                    </Typography>
-                    <Typography variant="subtitle2" color="text.secondary" gutterBottom sx={{ fontStyle: 'italic', fontSize: '0.8rem' }}>
-                      {edu.location}
-                    </Typography>
-                    <Typography variant="subtitle1" color="primary.main" gutterBottom sx={{ fontWeight: 600, fontSize: '0.9rem' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 0.5 }}>
+                      <Typography
+                        color="primary"
+                        sx={{
+                          fontSize: { xs: '0.9rem', md: '1rem' },
+                          fontWeight: 600
+                        }}
+                      >
+                        {edu.school}
+                      </Typography>
+                      <Typography
+                        color="text.secondary"
+                        sx={{
+                          fontSize: { xs: '0.7rem', md: '0.85rem' },
+                        }}
+                      >
+                        • {edu.location}
+                      </Typography>
+                    </Box>
+                    <Typography
+                      variant="subtitle2"
+                      color="text.primary"
+                      sx={{
+                        fontSize: { xs: '0.8rem', md: '0.9rem' },
+                        fontWeight: 600
+                      }}
+                    >
                       {edu.year}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.5, fontSize: '0.85rem' }}>
-                      {edu.description}
-                    </Typography>
+                    <List sx={{ mt: 1.5, listStyleType: 'disc', pl: 1.5 }}>
+                      <ListItem sx={{
+                        display: 'list-item',
+                        pl: 0,
+                        py: 0.25,
+                        '&::marker': {
+                          color: 'primary.main',
+                          fontWeight: 'bold'
+                        }
+                      }}>
+                        <ListItemText
+                          primary={edu.description}
+                          sx={{
+                            '& .MuiListItemText-primary': {
+                              fontSize: '0.85rem',
+                              lineHeight: 1.5,
+                              color: 'text.secondary'
+                            }
+                          }}
+                        />
+                      </ListItem>
+                    </List>
                   </CardContent>
                 </Card>
               ))
@@ -486,23 +503,12 @@ const Experience = () => {
             component="h1"
             sx={{
               fontSize: { xs: '1.75rem', md: '2.5rem' },
-              mb: 0.5,
+              mb: 2,
               color: 'primary.main',
               fontWeight: 600
             }}
           >
             Technologies
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              mb: 2.5,
-              color: 'text.secondary',
-              fontStyle: 'italic',
-              fontSize: '0.9rem'
-            }}
-          >
-            Skills and tools I work with
           </Typography>
 
           <Paper elevation={0} sx={{
@@ -613,25 +619,13 @@ const Experience = () => {
             component="h1"
             sx={{
               fontSize: { xs: '1.75rem', md: '2.5rem' },
-              mb: 0.5,
+              mb: 2,
               textAlign: 'center',
               color: 'primary.main',
               fontWeight: 600
             }}
           >
             Extracurricular Activities
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              mb: 3,
-              textAlign: 'center',
-              color: 'text.secondary',
-              fontStyle: 'italic',
-              fontSize: '0.9rem'
-            }}
-          >
-            Beyond the classroom and workplace
           </Typography>
 
           {/* Category Filter */}
@@ -735,7 +729,7 @@ const Experience = () => {
                               {activity.title}
                             </Typography>
                             <Typography variant="subtitle2" sx={{
-                              color: 'primary.main',
+                              color: 'text.primary',
                               fontWeight: 600,
                               fontSize: '0.8rem'
                             }}>
