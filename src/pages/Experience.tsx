@@ -261,8 +261,8 @@ const Experience = () => {
               <>{loadingSkeleton}</>
             ) : (
               experiences.map((exp, index) => {
-                const isSameCompany = index > 0 && experiences[index - 1].company === exp.company;
-                const isLastInCompany = index === experiences.length - 1 || experiences[index + 1].company !== exp.company;
+                const isSameCompany = index > 0 && experiences[index - 1].company === exp.company
+                const isLastInCompany = index === experiences.length - 1 || experiences[index + 1].company !== exp.company
 
                 return (
                   <Box key={index} sx={{ position: 'relative' }}>
@@ -442,7 +442,7 @@ const Experience = () => {
                       </CardContent>
                     </Card>
                   </Box>
-                );
+                )
               })
             )}
           </Box>

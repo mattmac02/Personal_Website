@@ -1,9 +1,9 @@
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Experience from './pages/Experience';
+import { ThemeProvider, CssBaseline, createTheme } from '@mui/material'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import About from './pages/About'
+import Projects from './pages/Projects'
+import Experience from './pages/Experience'
 
 const theme = createTheme({
   typography: {
@@ -52,7 +52,7 @@ const theme = createTheme({
       paper: '#ffffff',
     },
   },
-});
+})
 
 function App() {
   return (
@@ -67,7 +67,7 @@ function App() {
         </Routes>
       </Router>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App
