@@ -338,7 +338,6 @@ const Experience = () => {
                             color="text.secondary"
                             sx={{
                               fontSize: { xs: '0.7rem', md: '0.85rem' },
-                              fontStyle: 'italic'
                             }}
                           >
                             • {exp.location}
@@ -346,7 +345,7 @@ const Experience = () => {
                         </Box>
                         <Typography
                           variant="subtitle2"
-                          color="primary.main"
+                          color="text.primary"
                           sx={{
                             fontSize: { xs: '0.8rem', md: '0.9rem' },
                             fontWeight: 600
