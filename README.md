@@ -6,6 +6,14 @@ Welcome to my personal portfolio website! This is where I showcase my profession
 
 I'm a Computer Engineering graduate from Queen's University with experience in full-stack development, AI engineering, and cloud technologies. Currently working as a Full-Stack Engineer at Pivotal Life Sciences.
 
+## 📧 Get In Touch
+
+Interested in working together or just want to chat? Feel free to reach out!
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/matthew-maceachern/)
+- 📧 [Email](mailto:mattmac02@hotmail.ca)  
+- 💻 [GitHub](https://github.com/mattmac02)
+
 ## 📱 View Live
 
 🔗 [Visit my portfolio](https://matthewmaceachern.netlify.app/)
@@ -17,14 +25,6 @@ I'm a Computer Engineering graduate from Queen's University with experience in f
 - **Projects** - Showcase of my technical work and contributions
 - **Skills & Technologies** - My technical expertise and tools I work with
 - **Extracurricular Activities** - Leadership roles and personal interests
-- 
-## 📧 Get In Touch
-
-Interested in working together or just want to chat? Feel free to reach out!
-
-- 💼 [LinkedIn](https://www.linkedin.com/in/matthew-maceachern/)
-- 📧 [Email](mailto:mattmac02@hotmail.ca)  
-- 💻 [GitHub](https://github.com/mattmac02)
   
 ## 🛠️ Built With
 
