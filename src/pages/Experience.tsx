@@ -39,7 +39,7 @@ interface Technologies {
 
 const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolve([
   {
-    year: '2024 - Present',
+    year: '2025',
     title: 'Full-Stack Engineer I',
     location: 'San Francisco, CA',
     company: 'Pivotal Life Sciences',
@@ -49,7 +49,7 @@ const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolv
     ],
   },
   {
-    year: '2024 - Present',
+    year: '2024',
     title: 'Junior Full-Stack Engineer',
     location: 'San Francisco, CA',
     company: 'Pivotal Life Sciences',
