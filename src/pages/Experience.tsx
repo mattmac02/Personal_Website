@@ -40,7 +40,7 @@ interface Technologies {
 const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolve([
   {
     year: '2024 - Present',
-    title: 'Full-Stack Engineer',
+    title: 'Full-Stack Engineer I',
     location: 'San Francisco, CA',
     company: 'Pivotal Life Sciences',
     website: 'https://pivotallifesciences.com',
