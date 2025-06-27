@@ -128,9 +128,11 @@ const Navbar = () => {
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: 240,
-            background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.02) 0%, rgba(33, 150, 243, 0.03) 100%)',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)',
+            backdropFilter: 'blur(10px)',
             borderLeft: '1px solid',
-            borderColor: 'rgba(33, 150, 243, 0.08)',
+            borderColor: 'rgba(33, 150, 243, 0.15)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
           },
         }}
       >
