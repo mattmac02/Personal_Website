@@ -124,9 +124,26 @@ const About = () => {
                     mb: 3,
                     fontWeight: 600,
                     fontSize: { xs: '1.2rem', md: '1.4rem' },
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    flexWrap: 'wrap',
                   }}
                 >
                   Full-Stack Engineer
+                  <Typography
+                    component="span"
+                    sx={{
+                      color: 'primary.main',
+                      fontWeight: 500,
+                      fontSize: '1rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 0.5,
+                    }}
+                  >
+                    📍 San Francisco, CA
+                  </Typography>
                 </Typography>
                 <Typography
                   variant="body1"

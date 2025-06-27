@@ -34,7 +34,7 @@ interface Extracurricular {
 interface Technologies {
   frontend: string[]
   backend: string[]
-  tools: string[]
+  dataLayer: string[]
 }
 
 const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolve([
@@ -45,7 +45,13 @@ const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolv
     company: 'Pivotal Life Sciences',
     website: 'https://pivotallifesciences.com',
     description: [
-      'Currently working on the development of a new AI-powered investment platform for Pivotal Life Sciences.',
+      'Designed and shipped full-stack features in a biotech AI driven investment platform using React, Next.js, TypeScript, Python, and AWS, directly contributing to the onboarding and use of 25+ internal users.',
+      'Co-led development of an AI-powered natural language search feature trained using private warehouse data, significantly improving search relevance and reducing investor research time.',
+      'Architected and maintained low-latency RESTful APIs, optimizing payload chunking and reducing average response time by 40%, enhancing platform responsiveness.',
+      'Owned platform reliability as one of two full-stack engineers, implementing monitoring and alerting systems (Datadog) to maintain 99.9% uptime and resolve production issues swiftly.',
+      'Collaborated with cross-functional stakeholders (investors, biologists, statisticians) to define, scope, and ship data-heavy features used in >80% of workflows.',
+      'Designed warehouse table schemas and leveraged ETL pipelines with Apache Airflow, extracting structured research data from warehouse to application database, powering analytics for 80+ investment opportunities.',
+
     ],
   },
   {
@@ -55,7 +61,7 @@ const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolv
     company: 'Pivotal Life Sciences',
     website: 'https://pivotallifesciences.com',
     description: [
-      'Curently working.',
+      'Currently working on the development of a new AI-powered investment platform for Pivotal Life Sciences.',
     ],
   },
   {
@@ -109,9 +115,9 @@ const fetchEducationData = () => new Promise(resolve => setTimeout(() => resolve
 ]), 250))
 
 const fetchTechnologiesData = () => new Promise(resolve => setTimeout(() => resolve({
-  frontend: ['React', 'TypeScript', 'Material-UI', 'NextJS', 'CSS3', 'HTML5'],
-  backend: ['AWS', 'Node.js', 'Python', 'PostgreSQL', 'Snowflake'],
-  tools: ['Airflow', 'Git', 'Docker', 'AWS', 'Jenkins', 'Jira']
+  frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'MaterialUI', 'Auth0', 'Datadog', 'Heroku', 'Dependabot'],
+  backend: ['Python', 'SQL', 'Node.js', 'AWS CDK', 'AWS Lambda', 'API Gateway', 'RDS', 'CodePipeline'],
+  dataLayer: ['Apache Airflow', 'AWS Athena', 'Warehouse']
 }), 250))
 
 const fetchExtracurricularData = () => new Promise(resolve => setTimeout(() => resolve([
@@ -639,13 +645,13 @@ const Experience = () => {
                   ))}
                 </Box>
                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 600, color: 'text.primary', mb: 1.5, fontSize: '1rem' }}>
-                  Tools & Platforms
+                  Data Layer
                 </Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
-                  {technologies.tools.map((tool) => (
+                  {technologies.dataLayer.map((tech) => (
                     <Chip
-                      key={tool}
-                      label={tool}
+                      key={tech}
+                      label={tech}
                       color="default"
                       variant="outlined"
                       size="small"
