@@ -21,20 +21,20 @@ const fetchProjectsData = (): Promise<Project[]> => new Promise(resolve => setTi
     technologies: ['React', 'TypeScript', 'Supabase', 'Netlify'],
     githubUrl: 'https://github.com/mattmac02/trackaroo'
   },
-  {
-    title: 'AI Investment Platform',
-    description: 'Full-stack AI-enabled investment platform with real-time data processing and predictive analytics.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
-    url: '/projects/ai-platform',
-    technologies: ['Python', 'React', 'AWS', 'Machine Learning']
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'Modern, responsive portfolio website built with React and Material-UI.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
-    url: '/projects/portfolio',
-    technologies: ['React', 'TypeScript', 'Material-UI', 'Vite']
-  }
+  // {
+  //   title: 'AI Investment Platform',
+  //   description: 'Full-stack AI-enabled investment platform with real-time data processing and predictive analytics.',
+  //   image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+  //   url: '/projects/ai-platform',
+  //   technologies: ['Python', 'React', 'AWS', 'Machine Learning']
+  // },
+  // {
+  //   title: 'Portfolio Website',
+  //   description: 'Modern, responsive portfolio website built with React and Material-UI.',
+  //   image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+  //   url: '/projects/portfolio',
+  //   technologies: ['React', 'TypeScript', 'Material-UI', 'Vite']
+  // }
 ]), 250))
 
 const Projects = () => {

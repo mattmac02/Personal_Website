@@ -2,6 +2,7 @@ import { Container, Typography, Box, Grid, Button, Skeleton, Chip } from '@mui/m
 import { Linkedin, Github, Download, Mail } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { FaReact, FaPython, FaAws, FaDatabase, FaNodeJs, FaDocker } from 'react-icons/fa'
+import WorldMap from '../components/WorldMap'
 
 const About = () => {
   const [loading, setLoading] = useState(true)
@@ -13,12 +14,45 @@ const About = () => {
   }, [])
 
   const skills = [
-    { name: 'React', icon: <FaReact />, color: 'primary' },
-    { name: 'Python', icon: <FaPython />, color: 'secondary' },
-    { name: 'AWS', icon: <FaAws />, color: 'default' },
-    { name: 'Node.js', icon: <FaNodeJs />, color: 'primary' },
-    { name: 'Databases', icon: <FaDatabase />, color: 'secondary' },
-    { name: 'Docker', icon: <FaDocker />, color: 'default' }
+    { name: 'React', icon: <FaReact />, color: 'primary' as const },
+    { name: 'Python', icon: <FaPython />, color: 'secondary' as const },
+    { name: 'AWS', icon: <FaAws />, color: 'default' as const },
+    { name: 'Node.js', icon: <FaNodeJs />, color: 'primary' as const },
+    { name: 'Databases', icon: <FaDatabase />, color: 'secondary' as const },
+    { name: 'Docker', icon: <FaDocker />, color: 'default' as const }
+  ]
+
+  const visitedCountries = [
+    'MY', // Malaysia
+    'CA', // Canada
+    'US', // USA
+    'ID', // Indonesia
+    'KE', // Kenya
+    'TZ', // Tanzania
+    'SG', // Singapore
+    'TH', // Thailand
+    'AT', // Austria
+    'HR', // Croatia
+    'CZ', // Czechia
+    'DE', // Germany
+    'GR', // Greece
+    'HU', // Hungary
+    'IE', // Ireland
+    'IT', // Italy
+    'NL', // Netherlands
+    'BQ', // Bonaire
+    'PL', // Poland
+    'PT', // Portugal
+    'SK', // Slovakia
+    'ES', // Spain
+    'GB', // United Kingdom
+    'BS', // Bahamas
+    'BZ', // Belize
+    'CR', // Costa Rica
+    'DO', // Dominican Republic
+    'MX', // Mexico
+    'PA', // Panama
+    'PE'  // Peru
   ]
 
   return (
@@ -154,7 +188,7 @@ const About = () => {
                     color: 'text.secondary',
                   }}
                 >
-                  I'm a Computer Engineering graduate from Queen’s University and currently a Full-Stack Engineer at Pivotal Life Sciences, where I develop AI-driven products to streamline the VC investment process. I thrive at the intersection of engineering and data, bringing ideas to life through end-to-end development and close collaboration with cross-functional teams. Previously, I worked as an AI Engineer at MoneyLion, focusing on data infrastructure and model reliability.
+                  I'm a Computer Engineering graduate from Queen's University and currently a Full-Stack Engineer at Pivotal Life Sciences, where I develop AI-driven products to streamline the VC investment process. I thrive at the intersection of engineering and data, bringing ideas to life through end-to-end development and close collaboration with cross-functional teams. Previously, I worked as an AI Engineer at MoneyLion, focusing on data infrastructure and model reliability.
                 </Typography>
                 <Typography
                   variant="body1"
@@ -184,7 +218,7 @@ const About = () => {
                         key={skill.name}
                         icon={skill.icon}
                         label={skill.name}
-                        color={skill.color as any}
+                        color={skill.color}
                         variant="outlined"
                         size="medium"
                         sx={{
@@ -306,6 +340,9 @@ const About = () => {
                 </Box>
               </>
             )}
+          </Grid>
+          <Grid item xs={12} md={12}>
+            <WorldMap visitedCountries={visitedCountries} />
           </Grid>
         </Grid>
       </Box>
