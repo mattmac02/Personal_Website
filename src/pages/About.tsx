@@ -154,9 +154,7 @@ const About = () => {
                     color: 'text.secondary',
                   }}
                 >
-                  A recent Computer Engineer graduate from Queen's University, I'm currently working as a Junior Full-Stack Engineer at Pivotal Life Sciences,
-                  where I build AI functionalities to streamline the VC process. Previously, I was an AI Engineer at MoneyLion, developing core predictive
-                  features through extensive testing procedures and feature extractions.
+                  I'm a Computer Engineering graduate from Queen’s University and currently a Full-Stack Engineer at Pivotal Life Sciences, where I develop AI-driven products to streamline the VC investment process. I thrive at the intersection of engineering and data, bringing ideas to life through end-to-end development and close collaboration with cross-functional teams. Previously, I worked as an AI Engineer at MoneyLion, focusing on data infrastructure and model reliability.
                 </Typography>
                 <Typography
                   variant="body1"
