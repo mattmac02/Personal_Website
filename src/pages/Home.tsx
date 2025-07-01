@@ -614,7 +614,7 @@ const Home = () => {
                 projects.map((project, index) => (
                   <div
                     key={index}
-                    className="group bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-700 relative transition-all duration-500 ease-out hover:shadow-3xl hover:-translate-y-1"
+                    className="group bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-700 relative transition-all duration-500 ease-out hover:shadow-3xl hover:-translate-y-1 hover:rounded-3xl"
                   >
                     {/* Project Image */}
                     <div className="relative overflow-hidden">
@@ -685,7 +685,7 @@ const Home = () => {
 
             {/* Call to Action */}
             <div className="text-center mt-16">
-              <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-3xl p-8 border border-gray-700">
+              <div className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">
                   Have a project in mind?
                 </h3>
@@ -858,7 +858,7 @@ const Home = () => {
                             {edu.year}
                           </div>
                           <div className="flex items-start gap-3">
-                            <span className="text-green-400 font-bold mt-1 text-lg">•</span>
+                            <span className="text-green-400 font-bold text-lg leading-none">•</span>
                             <p className="text-gray-200 text-sm">{edu.description}</p>
                           </div>
                         </div>
@@ -959,8 +959,7 @@ const Home = () => {
                           }}
                           onClick={() => handleExtracurricularToggle(activity.id)}
                         >
-                          {/* Top border gradient */}
-                          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gray-500 to-gray-400 rounded-t-2xl"></div>
+
 
                           <div className="flex items-start justify-between">
                             <div className="flex items-center gap-3 mb-2">
@@ -1035,7 +1034,7 @@ const Home = () => {
                 I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together.
               </p>
               
-              <div className="bg-gray-800 rounded-3xl shadow-2xl p-8 max-w-2xl mx-auto border border-gray-700">
+              <div className="p-8 max-w-2xl mx-auto">
                 <div className="space-y-6">
                   <div className="flex items-center justify-center gap-4">
                     <a

@@ -46,7 +46,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/80 border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="container-max px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -59,22 +59,24 @@ const Navbar = () => {
             </h1>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-          {menuItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200 ease-out
-                  ${isActive(item.href) 
-                    ? 'bg-white/10 text-white' 
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
-                  }
-                  hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black`}
-            >
-              {item.text}
-              </button>
-          ))}
+          {/* Desktop Navigation - Giant Pill */}
+          <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
+            <div className="bg-gray-900/50 backdrop-blur-md rounded-full p-1 border border-gray-700/50 shadow-xl">
+              {menuItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 ease-out mx-1
+                    ${isActive(item.href) 
+                      ? 'bg-white/10 text-white shadow-lg' 
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    }
+                    hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black`}
+                >
+                  {item.text}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Mobile menu button */}
