@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { Box, Typography } from '@mui/material'
 import * as am5 from '@amcharts/amcharts5'
 import * as am5map from '@amcharts/amcharts5/map'
 import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow'
@@ -36,8 +35,8 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     const polygonSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
         geoJSON: am5geodata_worldLow,
-        fill: am5.color(0xdddddd), //Light grey background
-        stroke: am5.color(0xffffff),
+        fill: am5.color(0x374151), // Dark gray background for unvisited countries
+        stroke: am5.color(0x4b5563),
         exclude: ['AQ'] // Exclude Antarctica
       })
     )
@@ -57,7 +56,7 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     // Add hover effects for unvisited countries
     polygonSeries.mapPolygons.template.states.create('hover', {
       fillOpacity: 1,
-      fill: am5.color(0xcccccc) // Slightly darke gray on hover
+      fill: am5.color(0x4b5563) // Slightly lighter gray on hover
     })
 
     // Create filtered geoJSON with only visited countries
@@ -72,8 +71,8 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     const visitedSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
         geoJSON: visitedGeoJSON,
-        fill: am5.color(0x2196f3), // Primary blue color from theme
-        stroke: am5.color(0xffffff)
+        fill: am5.color(0x3b82f6), // Blue-500 from Tailwind
+        stroke: am5.color(0x60a5fa)
       })
     )
 
@@ -92,7 +91,7 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     // Add hover effects for visited countries
     visitedSeries.mapPolygons.template.states.create('hover', {
       fillOpacity: 1,
-      fill: am5.color(0x1976d2) // Darker blue on hover
+      fill: am5.color(0x2563eb) // Blue-600 from Tailwind
     })
 
     // Add legend
@@ -110,11 +109,11 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     legend.data.setAll([
       {
         name: 'Visited Countries',
-        fill: am5.color(0x2196f3) // Primary blue color
+        fill: am5.color(0x3b82f6) // Blue-500 from Tailwind
       },
       {
         name: 'Not Visited',
-        fill: am5.color(0x000000) // Solid black
+        fill: am5.color(0x374151) // Dark gray
       }
     ])
 
@@ -125,29 +124,12 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
   }, [visitedCountries])
 
   return (
-    <Box sx={{ mt: 6 }}>
-      <Typography
-        variant="h4"
-        sx={{
-          textAlign: 'center',
-          mb: 3,
-          fontWeight: 600,
-          color: 'text.primary'
-        }}
-      >
-        Countries I've Visited
-      </Typography>
-      <Box
+    <div className="w-full">
+      <div
         id="world-map-container"
-        sx={{
-          width: '100%',
-          height: '500px',
-          borderRadius: 2,
-          overflow: 'hidden',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-        }}
+        className="w-full h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-gray-700"
       />
-    </Box>
+    </div>
   )
 }
 

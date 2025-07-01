@@ -1,5 +1,4 @@
-import { Container, Typography, Box, Grid, Button, Skeleton, Chip } from '@mui/material'
-import { Linkedin, Github, Download, Mail } from 'lucide-react'
+import { Linkedin, Github, Download, Mail, MapPin } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { FaReact, FaPython, FaAws, FaDatabase, FaNodeJs, FaDocker } from 'react-icons/fa'
 import WorldMap from '../components/WorldMap'
@@ -14,339 +13,172 @@ const About = () => {
   }, [])
 
   const skills = [
-    { name: 'React', icon: <FaReact />, color: 'primary' as const },
-    { name: 'Python', icon: <FaPython />, color: 'secondary' as const },
-    { name: 'AWS', icon: <FaAws />, color: 'default' as const },
-    { name: 'Node.js', icon: <FaNodeJs />, color: 'primary' as const },
-    { name: 'Databases', icon: <FaDatabase />, color: 'secondary' as const },
-    { name: 'Docker', icon: <FaDocker />, color: 'default' as const }
+    { name: 'React', icon: <FaReact />, color: 'blue' as const },
+    { name: 'Python', icon: <FaPython />, color: 'green' as const },
+    { name: 'AWS', icon: <FaAws />, color: 'gray' as const },
+    { name: 'Node.js', icon: <FaNodeJs />, color: 'blue' as const },
+    { name: 'Databases', icon: <FaDatabase />, color: 'green' as const },
+    { name: 'Docker', icon: <FaDocker />, color: 'gray' as const }
   ]
 
   const visitedCountries = [
-    'MY', // Malaysia
-    'CA', // Canada
-    'US', // USA
-    'ID', // Indonesia
-    'KE', // Kenya
-    'TZ', // Tanzania
-    'SG', // Singapore
-    'TH', // Thailand
-    'AT', // Austria
-    'HR', // Croatia
-    'CZ', // Czechia
-    'DE', // Germany
-    'GR', // Greece
-    'HU', // Hungary
-    'IE', // Ireland
-    'IT', // Italy
-    'NL', // Netherlands
-    'BQ', // Bonaire
-    'PL', // Poland
-    'PT', // Portugal
-    'SK', // Slovakia
-    'ES', // Spain
-    'GB', // United Kingdom
-    'BS', // Bahamas
-    'BZ', // Belize
-    'CR', // Costa Rica
-    'DO', // Dominican Republic
-    'MX', // Mexico
-    'PA', // Panama
-    'PE'  // Peru
+    'MY', 'CA', 'US', 'ID', 'KE', 'TZ', 'SG', 'TH', 'AT', 'HR', 'CZ', 'DE', 'GR', 'HU', 'IE', 'IT', 'NL', 'BQ', 'PL', 'PT', 'SK', 'ES', 'GB', 'BS', 'BZ', 'CR', 'DO', 'MX', 'PA', 'PE'
   ]
 
   return (
-    <Container maxWidth="lg">
-      <Box sx={{
-        py: { xs: 4, md: 8 },
-        px: { xs: 2, md: 6 }
-      }}>
-        {/* Header Section */}
-        <Box sx={{
-          mb: { xs: 4, md: 6 },
-          textAlign: 'center'
-        }}>
-          <Typography
-            variant="h2"
-            component="h1"
-            sx={{
-              fontSize: { xs: '2rem', md: '3rem' },
-              fontWeight: 600,
-              mb: 1,
-              color: 'primary.main',
-            }}
-          >
+    <div className="section-padding">
+      <div className="container-max">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
             About Me
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              color: 'text.secondary',
-              fontStyle: 'italic',
-              fontSize: '1rem',
-            }}
-          >
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Full-Stack Engineer passionate about building impactful software
-          </Typography>
-        </Box>
+          </p>
+        </div>
 
-        <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Profile Image */}
-          <Grid item xs={12} md={5}>
+          <div className="order-2 lg:order-1">
             {loading ? (
-              <Skeleton
-                variant="rectangular"
-                width="100%"
-                height={320}
-                sx={{
-                  borderRadius: 3,
-                  maxWidth: 400,
-                  mx: 'auto',
-                  display: 'block'
-                }}
-              />
+              <div className="w-full max-w-md mx-auto">
+                <div className="aspect-square bg-gray-200 rounded-3xl animate-pulse"></div>
+              </div>
             ) : (
-              <Box
-                component="img"
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-green-400 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <img
                 src="/assets/headshot.jpeg"
-                sx={{
-                  width: '100%',
-                  maxWidth: 400,
-                  height: 'auto',
-                  borderRadius: 3,
-                  display: 'block',
-                  mx: 'auto',
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                }}
-                alt="Profile"
+                  alt="Matthew MacEachern"
+                  className="relative w-full max-w-md mx-auto rounded-3xl shadow-lg object-cover aspect-square"
               />
+              </div>
             )}
-          </Grid>
+          </div>
 
           {/* Content Section */}
-          <Grid item xs={12} md={7}>
+          <div className="order-1 lg:order-2 space-y-8">
             {loading ? (
-              <>
-                <Skeleton variant="text" width="60%" height={48} sx={{ mb: 2 }} />
-                <Skeleton variant="text" width="40%" height={32} sx={{ mb: 3 }} />
-                <Skeleton variant="text" width="100%" height={60} sx={{ mb: 2 }} />
-                <Skeleton variant="text" width="80%" height={60} sx={{ mb: 4 }} />
-                <Skeleton variant="text" width="30%" height={32} sx={{ mb: 2 }} />
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                  <Skeleton variant="rectangular" width={80} height={32} />
-                  <Skeleton variant="rectangular" width={70} height={32} />
-                  <Skeleton variant="rectangular" width={60} height={32} />
-                </Box>
-              </>
+              <div className="space-y-6">
+                <div className="h-12 bg-gray-200 rounded-xl animate-pulse"></div>
+                <div className="h-8 bg-gray-200 rounded-lg animate-pulse w-3/4"></div>
+                <div className="space-y-3">
+                  <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse w-5/6"></div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse w-4/6"></div>
+                </div>
+              </div>
             ) : (
               <>
-                <Typography
-                  variant="h3"
-                  sx={{
-                    fontSize: { xs: '1.75rem', md: '2.25rem' },
-                    fontWeight: 600,
-                    mb: 2,
-                    color: 'text.primary',
-                  }}
-                >
+                {/* Introduction */}
+                <div className="space-y-4">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
                   Hi there! I'm Matthew
-                </Typography>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    color: 'primary.main',
-                    mb: 3,
-                    fontWeight: 600,
-                    fontSize: { xs: '1.2rem', md: '1.4rem' },
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 2,
-                    flexWrap: 'wrap',
-                  }}
-                >
-                  Full-Stack Engineer
-                  <Typography
-                    component="span"
-                    sx={{
-                      color: 'primary.main',
-                      fontWeight: 500,
-                      fontSize: '1rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 0.5,
-                    }}
-                  >
-                    📍 San Francisco, CA
-                  </Typography>
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    mb: 4,
-                    fontSize: { xs: '1rem', md: '1.1rem' },
-                    lineHeight: 1.7,
-                    color: 'text.secondary',
-                  }}
-                >
-                  I'm a Computer Engineering graduate from Queen's University and currently a Full-Stack Engineer at Pivotal Life Sciences, where I develop AI-driven products to streamline the VC investment process. I thrive at the intersection of engineering and data, bringing ideas to life through end-to-end development and close collaboration with cross-functional teams. Previously, I worked as an AI Engineer at MoneyLion, focusing on data infrastructure and model reliability.
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    mb: 4,
-                    fontSize: { xs: '1rem', md: '1.1rem' },
-                    lineHeight: 1.7,
-                    color: 'text.secondary',
-                  }}
-                >
+                  </h2>
+                  <div className="flex items-center gap-3 text-lg text-blue-600 font-semibold">
+                    <span>Full-Stack Engineer</span>
+                    <div className="flex items-center gap-1 text-gray-500">
+                      <MapPin size={16} />
+                      <span className="text-sm">San Francisco, CA</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bio */}
+                <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <p className="text-lg">
+                    I'm a Computer Engineering graduate from Queen's University and currently a Full-Stack Engineer at Pivotal Life Sciences, where I develop AI-driven products to streamline the VC investment process.
+                  </p>
+                  <p className="text-lg">
+                    I thrive at the intersection of engineering and data, bringing ideas to life through end-to-end development and close collaboration with cross-functional teams. Previously, I worked as an AI Engineer at MoneyLion, focusing on data infrastructure and model reliability.
+                  </p>
+                  <p className="text-lg">
                   I'm passionate about building and improving systems that make a difference in people's everyday lives through innovative software solutions.
-                </Typography>
+                  </p>
+                </div>
 
                 {/* Skills Section */}
-                <Box sx={{ mb: 4 }}>
-                  <Typography variant="h6" sx={{
-                    fontWeight: 600,
-                    mb: 2,
-                    color: 'text.primary',
-                    fontSize: '1.1rem'
-                  }}>
-                    Core Technologies
-                  </Typography>
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-gray-900">Core Technologies</h3>
+                  <div className="flex flex-wrap gap-3">
                     {skills.map((skill) => (
-                      <Chip
+                      <div
                         key={skill.name}
-                        icon={skill.icon}
-                        label={skill.name}
-                        color={skill.color}
-                        variant="outlined"
-                        size="medium"
-                        sx={{
-                          fontSize: '0.85rem',
-                          fontWeight: 500,
-                          borderWidth: '1.5px',
-                          '&:hover': {
-                            backgroundColor: skill.color === 'primary' ? 'primary.main' :
-                              skill.color === 'secondary' ? 'secondary.main' : 'rgba(0,0,0,0.08)',
-                            color: skill.color === 'default' ? 'text.primary' : 'white',
-                            transform: 'translateY(-1px)',
-                            boxShadow: '0 2px 6px rgba(33, 150, 243, 0.3)'
-                          },
-                          transition: 'all 0.2s ease'
-                        }}
-                      />
+                        className={`px-4 py-2 rounded-xl font-medium text-sm border-2 transition-all duration-200 hover:scale-105 cursor-pointer
+                          ${skill.color === 'blue' 
+                            ? 'border-blue-200 text-blue-700 bg-blue-50 hover:bg-blue-100 hover:border-blue-300' 
+                            : skill.color === 'green'
+                            ? 'border-green-200 text-green-700 bg-green-50 hover:bg-green-100 hover:border-green-300'
+                            : 'border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100 hover:border-gray-300'
+                          }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="text-base">{skill.icon}</span>
+                          {skill.name}
+                        </div>
+                      </div>
                     ))}
-                  </Box>
-                </Box>
+                  </div>
+                </div>
 
                 {/* Contact & Resume Section */}
-                <Box sx={{
-                  display: 'flex',
-                  flexDirection: { xs: 'column', sm: 'row' },
-                  gap: 3,
-                  alignItems: { xs: 'stretch', sm: 'center' }
-                }}>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   {/* Social Links */}
-                  <Box sx={{
-                    display: 'flex',
-                    gap: 2,
-                    justifyContent: { xs: 'center', sm: 'flex-start' }
-                  }}>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: 48,
-                        height: 48,
-                        borderRadius: '50%',
-                        backgroundColor: 'rgba(33, 150, 243, 0.08)',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease',
-                        '&:hover': {
-                          backgroundColor: 'rgba(33, 150, 243, 0.15)',
-                          transform: 'scale(1.05)'
-                        }
-                      }}
-                      onClick={() => window.open('https://github.com/mattmac02', '_blank')}
+                  <div className="flex gap-3">
+                    <a
+                      href="https://github.com/mattmac02"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 hover:scale-105 group"
                     >
-                      <Github size={24} style={{ color: '#2196f3' }} />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: 48,
-                        height: 48,
-                        borderRadius: '50%',
-                        backgroundColor: 'rgba(33, 150, 243, 0.08)',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease',
-                        '&:hover': {
-                          backgroundColor: 'rgba(33, 150, 243, 0.15)',
-                          transform: 'scale(1.05)'
-                        }
-                      }}
-                      onClick={() => window.open('https://www.linkedin.com/in/matthew-maceachern/', '_blank')}
+                      <Github size={20} className="text-gray-700 group-hover:text-gray-900" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/matthew-maceachern/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 hover:scale-105 group"
                     >
-                      <Linkedin size={24} style={{ color: '#2196f3' }} />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: 48,
-                        height: 48,
-                        borderRadius: '50%',
-                        backgroundColor: 'rgba(33, 150, 243, 0.08)',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease',
-                        '&:hover': {
-                          backgroundColor: 'rgba(33, 150, 243, 0.15)',
-                          transform: 'scale(1.05)'
-                        }
-                      }}
-                      onClick={() => window.open('mailto:19mam37@queensu.ca', '_blank')}
+                      <Linkedin size={20} className="text-gray-700 group-hover:text-gray-900" />
+                    </a>
+                    <a
+                      href="mailto:19mam37@queensu.ca"
+                      className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 hover:scale-105 group"
                     >
-                      <Mail size={24} style={{ color: '#2196f3' }} />
-                    </Box>
-                  </Box>
+                      <Mail size={20} className="text-gray-700 group-hover:text-gray-900" />
+                    </a>
+                  </div>
 
                   {/* Resume Button */}
-                  <Button
-                    variant="contained"
-                    color="primary"
+                  <a
                     href="/assets/Matthew_Resume.pdf"
                     download="Matthew_Resume.pdf"
-                    startIcon={<Download size={20} />}
-                    sx={{
-                      textTransform: 'none',
-                      px: 3,
-                      py: 1.5,
-                      fontSize: '1rem',
-                      fontWeight: 500,
-                      borderRadius: 2,
-                      transition: 'all 0.2s ease',
-                      '&:hover': {
-                        transform: 'translateY(-1px)',
-                        boxShadow: '0 4px 12px rgba(33, 150, 243, 0.3)'
-                      }
-                    }}
+                    className="button-primary inline-flex items-center gap-2"
                   >
+                    <Download size={18} />
                     Download Resume
-                  </Button>
-                </Box>
+                  </a>
+                </div>
               </>
             )}
-          </Grid>
-          <Grid item xs={12} md={12}>
+          </div>
+        </div>
+
+        {/* World Map Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Places I've Been</h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              I love traveling and experiencing different cultures. Here are some of the countries I've visited.
+            </p>
+          </div>
+          <div className="bg-white rounded-3xl shadow-md p-8">
             <WorldMap visitedCountries={visitedCountries} />
-          </Grid>
-        </Grid>
-      </Box>
-    </Container>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

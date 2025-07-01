@@ -1,144 +1,114 @@
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem } from '@mui/material'
-import { useNavigate, useLocation } from 'react-router-dom'
-import { Menu } from 'lucide-react'
-import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 const Navbar = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  const isActive = (path: string) => location.pathname === path
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
+  const [activeSection, setActiveSection] = useState('hero')
 
   const menuItems = [
-    { text: 'About', path: '/' },
-    { text: 'Projects', path: '/projects' },
-    { text: 'Experience', path: '/experience' },
+    { text: 'About', href: '#about' },
+    { text: 'Projects', href: '#projects' },
+    { text: 'Experience', href: '#experience' },
+    { text: 'Contact', href: '#contact' },
   ]
 
-  const drawer = (
-    <List>
-      {menuItems.map((item) => (
-        <ListItem
-          key={item.path}
-          onClick={() => {
-            navigate(item.path)
-            handleDrawerToggle()
-          }}
-          sx={{
-            color: isActive(item.path) ? 'primary.main' : 'inherit',
-            cursor: 'pointer',
-            '&:hover': {
-              backgroundColor: 'rgba(33, 150, 243, 0.08)',
-            },
-          }}
-        >
-          <Typography variant="button">{item.text}</Typography>
-        </ListItem>
-      ))}
-    </List>
-  )
+  // Handle smooth scrolling to sections
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    setMobileOpen(false)
+  }
+
+  // Update active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'about', 'projects', 'experience', 'contact']
+      const scrollPosition = window.scrollY + 100
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i])
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i])
+          break
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const isActive = (href: string) => {
+    const section = href.replace('#', '')
+    return activeSection === section
+  }
 
   return (
-    <AppBar
-      position="static"
-      color="transparent"
-      elevation={0}
-      sx={{
-        background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.02) 0%, rgba(33, 150, 243, 0.03) 100%)',
-        borderBottom: '1px solid',
-        borderColor: 'rgba(0, 0, 0, 0.15)',
-        backdropFilter: 'blur(10px)',
-      }}
-    >
-      <Toolbar sx={{ px: { xs: 2, md: 4 } }}>
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            flexGrow: 1,
-            fontWeight: 600,
-            color: 'primary.main',
-            fontSize: { xs: '1.1rem', md: '1.3rem' }
-          }}
-        >
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/80 border-b border-white/10">
+      <div className="container-max px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div 
+            className="flex items-center cursor-pointer group"
+            onClick={() => scrollToSection('#hero')}
+          >
+            <h1 className="text-xl font-bold gradient-text tracking-tight">
           Matthew MacEachern
-        </Typography>
-        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
+            </h1>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-1">
           {menuItems.map((item) => (
-            <Button
-              key={item.path}
-              color={isActive(item.path) ? 'primary' : 'inherit'}
-              onClick={() => navigate(item.path)}
-              sx={{
-                textTransform: 'none',
-                fontWeight: isActive(item.path) ? 600 : 500,
-                fontSize: '0.9rem',
-                px: 2,
-                py: 1,
-                borderRadius: 1.5,
-                transition: 'all 0.2s ease',
-                '&:hover': {
-                  backgroundColor: isActive(item.path)
-                    ? 'rgba(33, 150, 243, 0.12)'
-                    : 'rgba(33, 150, 243, 0.08)',
-                  transform: 'translateY(-1px)',
-                },
-                ...(isActive(item.path) && {
-                  backgroundColor: 'rgba(33, 150, 243, 0.08)',
-                  border: '1px solid',
-                  borderColor: 'rgba(33, 150, 243, 0.2)',
-                })
-              }}
+              <button
+                key={item.href}
+                onClick={() => scrollToSection(item.href)}
+                className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200 ease-out
+                  ${isActive(item.href) 
+                    ? 'bg-white/10 text-white' 
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  }
+                  hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black`}
             >
               {item.text}
-            </Button>
+              </button>
           ))}
-        </Box>
-        <IconButton
-          color="primary"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{
-            display: { sm: 'none' },
-            backgroundColor: 'rgba(33, 150, 243, 0.08)',
-            '&:hover': {
-              backgroundColor: 'rgba(33, 150, 243, 0.12)',
-            }
-          }}
-        >
-          <Menu />
-        </IconButton>
-      </Toolbar>
-      <Drawer
-        variant="temporary"
-        anchor="right"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: 240,
-            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)',
-            backdropFilter: 'blur(10px)',
-            borderLeft: '1px solid',
-            borderColor: 'rgba(33, 150, 243, 0.15)',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-          },
-        }}
-      >
-        {drawer}
-      </Drawer>
-    </AppBar>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden p-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 
+                     transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/20"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {mobileOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-md rounded-2xl mt-2 shadow-2xl border border-white/10">
+              {menuItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`w-full text-left px-4 py-3 rounded-xl font-medium text-sm transition-all duration-200
+                    ${isActive(item.href)
+                      ? 'bg-white/10 text-white'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    }`}
+                >
+                  {item.text}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   )
 }
 
