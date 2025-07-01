@@ -218,6 +218,7 @@ const Home = () => {
   const [projects, setProjects] = useState<Project[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
+  const [expandedExperiences, setExpandedExperiences] = useState<Set<number>>(new Set([0]))
 
   const skills = [
     { name: 'React', icon: <FaReact />, color: 'blue' as const },
@@ -291,6 +292,18 @@ const Home = () => {
     }
   }
 
+  const handleExperienceToggle = (index: number) => {
+    setExpandedExperiences(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(index)) {
+        newSet.delete(index)
+      } else {
+        newSet.add(index)
+      }
+      return newSet
+    })
+  }
+
   const filteredExtracurriculars = extracurriculars?.filter(item =>
     selectedCategory === 'all' || item.category === selectedCategory
   )
@@ -354,9 +367,6 @@ const Home = () => {
               <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay">
                 Full-Stack Engineer passionate about building impactful software
               </p>
-              <p className="text-lg text-gray-400 mt-4 animate-fade-in-delay-2">
-                Based in San Francisco, CA • Available for opportunities
-              </p>
             </div>
 
             {/* Animated stats */}
@@ -369,10 +379,18 @@ const Home = () => {
                 <div className="text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">150K+</div>
                 <div className="text-sm text-gray-400">Lines of Code</div>
               </div>
+              <div className="text-center animate-float" style={{ animationDelay: '0s' }}>
+              <div className="text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">10+</div>
+              <div className="text-sm text-gray-400">Languages/Frameworks</div>
+            </div>
               <div className="text-center animate-float" style={{ animationDelay: '0.5s' }}>
-                <div className="text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">10+</div>
-                <div className="text-sm text-gray-400">Languages/Frameworks</div>
+                <div className="text-2xl font-bold text-white bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent flex items-center justify-center gap-1">
+                  <MapPin size={28} />
+
+                </div>
+                <div className="text-sm text-gray-400">San Francisco</div>
               </div>
+
             </div>
 
             {/* Enhanced CTA buttons */}
@@ -756,20 +774,22 @@ const Home = () => {
                               <div className="absolute left-6 bottom-[-16px] w-0.5 h-4 bg-gradient-to-b from-blue-400 to-blue-500 z-10"></div>
                             )}
 
-                            <div className={`bg-gray-800 rounded-2xl shadow-2xl p-6 border-l-4 transition-all duration-300 hover:shadow-2xl group cursor-pointer
-                              ${isSameCompany ? 'border-blue-500 bg-gradient-to-r from-gray-800/50 to-gray-800' : 'border-blue-400'}
-                              hover:transform hover:-translate-y-1 hover:border-blue-300 hover:bg-gray-750`}
+                            <div 
+                              className={`bg-gray-800 rounded-2xl shadow-2xl p-6 border-l-4 transition-all duration-300 hover:shadow-2xl group cursor-pointer
+                                ${isSameCompany ? 'border-blue-500 bg-gradient-to-r from-gray-800/50 to-gray-800' : 'border-blue-400'}
+                                hover:transform hover:-translate-y-1 hover:border-blue-300 hover:bg-gray-750`}
                               style={{
                                 background: isSameCompany
                                   ? 'linear-gradient(145deg, #1f2937 0%, #374151 50%, #1f2937 100%)'
                                   : 'linear-gradient(145deg, #1f2937 0%, #374151 50%, #1f2937 100%)',
                                 position: 'relative',
                                 overflow: 'visible',
-                                border: '1px solid rgba(59, 130, 246, 0.2)'
+                                border: '1px solid rgba(59, 130, 246, 0.2)',
                               }}
+                              onClick={() => handleExperienceToggle(index)}
                             >
                               {/* Top border gradient */}
-                              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 rounded-t-2xl"></div>
+                              {/* <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 rounded-t-2xl"></div> */}
 
                               {/* Header */}
                               <div className="flex items-start justify-between mb-4">
@@ -784,6 +804,7 @@ const Home = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-blue-300 font-semibold hover:text-blue-200 flex items-center gap-1 transition-colors"
+                                        onClick={(e) => e.stopPropagation()}
                                       >
                                         {exp.company}
                                         <ExternalLink size={14} />
@@ -801,25 +822,34 @@ const Home = () => {
                                   </div>
                                 </div>
 
-                                {/* Career progression indicator */}
-                                {isSameCompany && (
-                                  <div className="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-semibold rounded-lg border border-green-500/30">
-                                    ↑ Promotion
+                                <div className="flex items-center gap-2">
+                                  {/* Career progression indicator */}
+                                  {isSameCompany && (
+                                    <div className="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-semibold rounded-lg border border-green-500/30">
+                                      ↑ Promotion
+                                    </div>
+                                  )}
+                                  
+                                  {/* Expand/Collapse indicator */}
+                                  <div className="p-1 hover:bg-gray-700 rounded-lg transition-colors">
+                                    {expandedExperiences.has(index) ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                                   </div>
-                                )}
+                                </div>
                               </div>
 
                               {/* Description */}
-                              <div className="space-y-3">
-                                {exp.description.map((desc, descIndex) => (
-                                  <div key={descIndex} className="flex items-start gap-3">
-                                    <span className="text-blue-400 font-bold mt-1 text-lg">•</span>
-                                    <p className="text-gray-200 leading-relaxed text-sm">
-                                      {desc}
-                                    </p>
-                                  </div>
-                                ))}
-                              </div>
+                              {expandedExperiences.has(index) && (
+                                <div className="space-y-3 animate-fade-in">
+                                  {exp.description.map((desc, descIndex) => (
+                                    <div key={descIndex} className="flex items-start gap-3">
+                                      <span className="text-blue-400 font-bold mt-1 text-lg">•</span>
+                                      <p className="text-gray-200 leading-relaxed text-sm">
+                                        {desc}
+                                      </p>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
                             </div>
                           </div>
                         )
