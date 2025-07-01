@@ -207,6 +207,14 @@ const fetchProjectsData = (): Promise<Project[]> => new Promise(resolve => setTi
     technologies: ['React', 'TypeScript', 'Supabase', 'Netlify'],
     githubUrl: 'https://github.com/mattmac02/trackaroo'
   },
+  {
+    title: 'SalarySignal',
+    description: 'A negotiation platform that simulates recruiter conversations, analyzes job offers, and generates personalized counteroffers through an interactive interface',
+    image: '/assets/salary_signal.jpeg',
+    url: 'https://salarysignal.netlify.app/',
+    technologies: ['React', 'TypeScript', 'OpenAI', 'Netlify'],
+    githubUrl: 'https://github.com/mattmac02/SalarySignal'
+  },
 ]), 250))
 
 const Home = () => {
@@ -775,7 +783,7 @@ const Home = () => {
                             )}
 
                             <div 
-                              className={`bg-gray-800 rounded-2xl shadow-2xl p-6 border-l-4 transition-all duration-300 hover:shadow-2xl group cursor-pointer
+                              className={`bg-gray-800 rounded-2xl shadow-2xl p-6 border-l-4 transition-all duration-200 hover:shadow-2xl group cursor-pointer relative
                                 ${isSameCompany ? 'border-blue-500 bg-gradient-to-r from-gray-800/50 to-gray-800' : 'border-blue-400'}
                                 hover:transform hover:-translate-y-1 hover:border-blue-300 hover:bg-gray-750`}
                               style={{
@@ -788,6 +796,8 @@ const Home = () => {
                               }}
                               onClick={() => handleExperienceToggle(index)}
                             >
+                              {/* Clickable indicator overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-2xl pointer-events-none"></div>
                               {/* Top border gradient */}
                               {/* <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 rounded-t-2xl"></div> */}
 
@@ -831,15 +841,28 @@ const Home = () => {
                                   )}
                                   
                                   {/* Expand/Collapse indicator */}
-                                  <div className="p-1 hover:bg-gray-700 rounded-lg transition-colors">
-                                    {expandedExperiences.has(index) ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-xs text-gray-400 font-medium">
+                                      {expandedExperiences.has(index) ? 'Click to collapse' : 'Click to expand'}
+                                    </span>
+                                    <div className="p-2 hover:bg-gray-700 rounded-lg transition-all duration-200 hover:scale-110 bg-gray-700/50 group-hover:bg-blue-500/20">
+                                      <div className={`transition-transform duration-300 ease-in-out ${expandedExperiences.has(index) ? 'rotate-180' : 'rotate-0'}`}>
+                                        <ChevronDown size={18} className="text-blue-400 group-hover:text-blue-300 transition-colors group-hover:animate-bounce" />
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
 
                               {/* Description */}
-                              {expandedExperiences.has(index) && (
-                                <div className="space-y-3 animate-fade-in">
+                              <div 
+                                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                                  expandedExperiences.has(index) 
+                                    ? 'max-h-96 opacity-100' 
+                                    : 'max-h-0 opacity-0'
+                                }`}
+                              >
+                                <div className="space-y-3 pt-2">
                                   {exp.description.map((desc, descIndex) => (
                                     <div key={descIndex} className="flex items-start gap-3">
                                       <span className="text-blue-400 font-bold mt-1 text-lg">•</span>
@@ -849,7 +872,7 @@ const Home = () => {
                                     </div>
                                   ))}
                                 </div>
-                              )}
+                              </div>
                             </div>
                           </div>
                         )
