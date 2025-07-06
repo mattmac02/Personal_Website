@@ -205,7 +205,7 @@ const fetchProjectsData = (): Promise<Project[]> => new Promise(resolve => setTi
     image: './assets/trackaroo_logo.jpeg',
     url: 'https://trackaroo.netlify.app/',
     technologies: ['React', 'TypeScript', 'Supabase', 'Netlify'],
-    githubUrl: 'https://github.com/mattmac02/trackaroo'
+    // githubUrl: 'https://github.com/mattmac02/trackaroo'
   },
   {
     title: 'SalarySignal',
@@ -213,7 +213,15 @@ const fetchProjectsData = (): Promise<Project[]> => new Promise(resolve => setTi
     image: '/assets/salary_signal.jpeg',
     url: 'https://salarysignal.netlify.app/',
     technologies: ['React', 'TypeScript', 'OpenAI', 'Netlify'],
-    githubUrl: 'https://github.com/mattmac02/SalarySignal'
+    // githubUrl: 'https://github.com/mattmac02/SalarySignal'
+  },
+  {
+    title: 'Coin Beam',
+    description: 'A cryptocurrency tracking and portfolio management platform with real-time price updates, portfolio analytics, and market insights.',
+    image: '/assets/coinbeam.png',
+    url: 'https://coinbeam.netlify.app/',
+    technologies: ['React', 'TypeScript', 'CoinGecko API', 'Netlify'],
+    // githubUrl: 'https://github.com/mattmac02/coinbeam'
   },
 ]), 250))
 
