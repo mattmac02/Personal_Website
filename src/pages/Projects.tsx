@@ -164,7 +164,7 @@ const Projects = () => {
               I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together.
             </p>
             <a
-              href="mailto:19mam37@queensu.ca"
+              href="mailto:mattmac743@gmail.com"
               className="button-primary inline-flex items-center gap-2"
             >
               Get in Touch

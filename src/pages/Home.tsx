@@ -560,7 +560,7 @@ const Home = () => {
                           <Linkedin size={20} className="text-gray-300 group-hover:text-white" />
                         </a>
                         <a
-                          href="mailto:19mam37@queensu.ca"
+                          href="mailto:mattmac743@gmail.com"
                           className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
                         >
                           <Mail size={20} className="text-gray-300 group-hover:text-white" />
@@ -727,7 +727,7 @@ const Home = () => {
                   I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together.
                 </p>
                 <a
-                  href="mailto:19mam37@queensu.ca"
+                  href="mailto:mattmac743@gmail.com"
                   className="button-primary inline-flex items-center gap-2"
                 >
                   Get in Touch
@@ -1115,7 +1115,7 @@ const Home = () => {
                       <Linkedin size={24} className="text-gray-300 group-hover:text-white" />
                     </a>
                     <a
-                      href="mailto:19mam37@queensu.ca"
+                      href="mailto:mattmac743@gmail.com"
                       className="p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
                     >
                       <Mail size={24} className="text-gray-300 group-hover:text-white" />
@@ -1124,7 +1124,7 @@ const Home = () => {
                   
                   <div className="pt-4">
                     <a
-                      href="mailto:19mam37@queensu.ca"
+                      href="mailto:mattmac743@gmail.com"
                       className="button-primary inline-flex items-center gap-2"
                     >
                       Send Message
