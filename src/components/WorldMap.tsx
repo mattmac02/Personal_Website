@@ -127,7 +127,7 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     <div className="w-full">
       <div
         id="world-map-container"
-        className="w-full h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-gray-700"
+        className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-gray-700"
       />
     </div>
   )
