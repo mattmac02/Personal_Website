@@ -370,7 +370,7 @@ const Home = () => {
             </div>
 
             {/* Main name with enhanced animation */}
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight relative">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 tracking-tight relative">
               <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent animate-gradient-x">
                 Matthew MacEachern
               </span>
@@ -380,40 +380,38 @@ const Home = () => {
 
             {/* Animated subtitle */}
             <div className="mb-8">
-              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay px-4">
                 Full-Stack Engineer passionate about building impactful software
               </p>
             </div>
 
             {/* Animated stats */}
-            <div className="flex justify-center gap-8 mb-12 animate-fade-in-delay-3">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 animate-fade-in-delay-3 max-w-4xl mx-auto px-4">
               <div className="text-center animate-float" style={{ animationDelay: '0s' }}>
-                <div className="text-2xl font-bold text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">2+</div>
-                <div className="text-sm text-gray-400">Years Experience</div>
+                <div className="text-xl sm:text-2xl font-bold text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">2+</div>
+                <div className="text-xs sm:text-sm text-gray-400">Years Experience</div>
               </div>
               <div className="text-center animate-float" style={{ animationDelay: '0.5s' }}>
-                <div className="text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">150K+</div>
-                <div className="text-sm text-gray-400">Lines of Code</div>
+                <div className="text-xl sm:text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">150K+</div>
+                <div className="text-xs sm:text-sm text-gray-400">Lines of Code</div>
               </div>
               <div className="text-center animate-float" style={{ animationDelay: '0s' }}>
-              <div className="text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">10+</div>
-              <div className="text-sm text-gray-400">Languages/Frameworks</div>
-            </div>
+                <div className="text-xl sm:text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">10+</div>
+                <div className="text-xs sm:text-sm text-gray-400">Languages/Frameworks</div>
+              </div>
               <div className="text-center animate-float" style={{ animationDelay: '0.5s' }}>
-                <div className="text-2xl font-bold text-white bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent flex items-center justify-center gap-1">
-                  <MapPin size={28} />
-
+                <div className="text-xl sm:text-2xl font-bold text-white bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent flex items-center justify-center gap-1">
+                  <MapPin size={20} className="sm:w-7 sm:h-7" />
                 </div>
-                <div className="text-sm text-gray-400">San Francisco</div>
+                <div className="text-xs sm:text-sm text-gray-400">San Francisco</div>
               </div>
-
             </div>
 
             {/* Enhanced CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-4 px-4">
               <a
                 href="#about"
-                className="button-primary inline-flex items-center gap-2 group"
+                className="button-primary inline-flex items-center justify-center gap-2 group w-full sm:w-auto"
               >
                 <span>Learn More</span>
                 <div className="transform group-hover:translate-x-1 transition-transform duration-200">
@@ -423,7 +421,7 @@ const Home = () => {
               <a
                 href="/assets/Matthew_Resume.pdf"
                 download="Matthew_Resume.pdf"
-                className="button-secondary inline-flex items-center gap-2 group"
+                className="button-secondary inline-flex items-center justify-center gap-2 group w-full sm:w-auto"
               >
                 <Download size={18} className="group-hover:animate-bounce" />
                 Download Resume
@@ -442,20 +440,20 @@ const Home = () => {
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Header */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            <div className="text-center mb-16 px-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
                 About Me
               </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 Full-Stack Engineer passionate about building impactful software
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
               {/* Profile Image */}
-              <div className="order-2 lg:order-1">
+              <div className="order-2 lg:order-1 px-4 lg:px-0">
                 {loading ? (
-                  <div className="w-full max-w-md mx-auto">
+                  <div className="w-full max-w-sm sm:max-w-md mx-auto">
                     <div className="aspect-square bg-gray-700 rounded-3xl animate-pulse"></div>
                   </div>
                 ) : (
@@ -464,14 +462,14 @@ const Home = () => {
                     <img
                       src="/assets/headshot.jpeg"
                       alt="Matthew MacEachern"
-                      className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl object-cover aspect-square"
+                      className="relative w-full max-w-sm sm:max-w-md mx-auto rounded-3xl shadow-2xl object-cover aspect-square"
                     />
                   </div>
                 )}
               </div>
 
               {/* Content Section */}
-              <div className="order-1 lg:order-2 space-y-8">
+              <div className="order-1 lg:order-2 space-y-8 px-4 lg:px-0">
                 {loading ? (
                   <div className="space-y-6">
                     <div className="h-12 bg-gray-700 rounded-xl animate-pulse"></div>
@@ -486,10 +484,10 @@ const Home = () => {
                   <>
                     {/* Introduction */}
                     <div className="space-y-4">
-                      <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
                         Hi there! I'm Matthew
                       </h3>
-                      <div className="flex items-center gap-3 text-lg text-blue-400 font-semibold">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-lg text-blue-400 font-semibold">
                         <span>Full-Stack Engineer</span>
                         <div className="flex items-center gap-1 text-gray-400">
                           <MapPin size={16} />
@@ -500,25 +498,25 @@ const Home = () => {
 
                     {/* Bio */}
                     <div className="space-y-4 text-gray-300 leading-relaxed">
-                      <p className="text-lg">
+                      <p className="text-base sm:text-lg">
                         I'm a Computer Engineering graduate from Queen's University and currently a Full-Stack Engineer at Pivotal Life Sciences, where I develop AI-driven products to streamline the VC investment process.
                       </p>
-                      <p className="text-lg">
+                      <p className="text-base sm:text-lg">
                         I thrive at the intersection of engineering and data, bringing ideas to life through end-to-end development and close collaboration with cross-functional teams. Previously, I worked as an AI Engineer at MoneyLion, focusing on data infrastructure and model reliability.
                       </p>
-                      <p className="text-lg">
+                      <p className="text-base sm:text-lg">
                         I'm passionate about building and improving systems that make a difference in people's everyday lives through innovative software solutions.
                       </p>
                     </div>
 
                     {/* Skills Section */}
                     <div className="space-y-4">
-                      <h4 className="text-xl font-semibold text-white">Core Technologies</h4>
-                      <div className="flex flex-wrap gap-3">
+                      <h4 className="text-lg sm:text-xl font-semibold text-white">Core Technologies</h4>
+                      <div className="flex flex-wrap gap-2 sm:gap-3">
                         {skills.map((skill) => (
                           <div
                             key={skill.name}
-                            className={`px-4 py-2 rounded-xl font-medium text-sm border-2 transition-all duration-200 hover:scale-105 cursor-pointer
+                            className={`px-3 sm:px-4 py-2 rounded-xl font-medium text-xs sm:text-sm border-2 transition-all duration-200 hover:scale-105 cursor-pointer
                               ${skill.color === 'blue' 
                                 ? 'border-blue-500/30 text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 hover:border-blue-500/50' 
                                 : skill.color === 'green'
@@ -530,8 +528,8 @@ const Home = () => {
                                 : 'border-gray-500/30 text-gray-300 bg-gray-500/10 hover:bg-gray-500/20 hover:border-gray-500/50'
                               }`}
                           >
-                            <div className="flex items-center gap-2">
-                              <span className="text-base flex items-center justify-center w-5 h-5">{skill.icon}</span>
+                            <div className="flex items-center gap-1 sm:gap-2">
+                              <span className="text-sm sm:text-base flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5">{skill.icon}</span>
                               {skill.name}
                             </div>
                           </div>
@@ -549,7 +547,7 @@ const Home = () => {
                           rel="noopener noreferrer"
                           className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
                         >
-                          <Github size={20} className="text-gray-300 group-hover:text-white" />
+                          <Github size={18} className="text-gray-300 group-hover:text-white" />
                         </a>
                         <a
                           href="https://www.linkedin.com/in/matthew-maceachern/"
@@ -557,13 +555,13 @@ const Home = () => {
                           rel="noopener noreferrer"
                           className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
                         >
-                          <Linkedin size={20} className="text-gray-300 group-hover:text-white" />
+                          <Linkedin size={18} className="text-gray-300 group-hover:text-white" />
                         </a>
                         <a
                           href="mailto:mattmac743@gmail.com"
                           className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
                         >
-                          <Mail size={20} className="text-gray-300 group-hover:text-white" />
+                          <Mail size={18} className="text-gray-300 group-hover:text-white" />
                         </a>
                       </div>
                     </div>
@@ -573,35 +571,35 @@ const Home = () => {
             </div>
 
             {/* World Map Section */}
-            <div className="mt-20">
-              <div className="text-center mb-12">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Places I've Been</h3>
-                <p className="text-gray-300 max-w-2xl mx-auto">
+            <div className="mt-16 sm:mt-20">
+              <div className="text-center mb-8 sm:mb-12 px-4">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">Places I've Been</h3>
+                <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
                   I love traveling and experiencing different cultures. Here are some of the countries I've visited.
                 </p>
               </div>
               
               {/* Travel Statistics */}
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-2xl p-6 border border-blue-500/20 text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">{visitedCountries.length}</div>
-                  <div className="text-gray-300 text-sm">Countries Visited</div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 px-4">
+                <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-2xl p-4 sm:p-6 border border-blue-500/20 text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">{visitedCountries.length}</div>
+                  <div className="text-gray-300 text-xs sm:text-sm">Countries Visited</div>
                 </div>
-                <div className="bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-2xl p-6 border border-green-500/20 text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-2">
+                <div className="bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-2xl p-4 sm:p-6 border border-green-500/20 text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">
                     {Math.round((visitedCountries.length / 195) * 100)}%
                   </div>
-                  <div className="text-gray-300 text-sm">Of World Countries</div>
+                  <div className="text-gray-300 text-xs sm:text-sm">Of World Countries</div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-2xl p-6 border border-purple-500/20 text-center">
-                  <div className="text-3xl font-bold text-purple-400 mb-2">
+                <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-2xl p-4 sm:p-6 border border-purple-500/20 text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">
                     5/7
                   </div>
-                  <div className="text-gray-300 text-sm">World Continents</div>
+                  <div className="text-gray-300 text-xs sm:text-sm">World Continents</div>
                 </div>
               </div>
               
-              <div className="bg-gray-800 rounded-3xl shadow-2xl p-8 border border-gray-700">
+              <div className="bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-700 mx-4 sm:mx-0">
                 <WorldMap visitedCountries={visitedCountries} />
               </div>
             </div>
@@ -614,17 +612,17 @@ const Home = () => {
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${visibleSections.has('projects') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Header Section */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            <div className="text-center mb-12 sm:mb-16 px-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
                 Projects
               </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 Showcasing my work in software development and technology
               </p>
             </div>
 
             {/* Projects Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {loading ? (
                 // Loading skeletons
                 Array.from({ length: 3 }).map((_, index) => (
@@ -718,17 +716,17 @@ const Home = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="text-center mt-16">
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">
+            <div className="text-center mt-12 sm:mt-16 px-4">
+              <div className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
                   Have a project in mind?
                 </h3>
-                <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                <p className="text-gray-300 mb-6 max-w-2xl mx-auto text-sm sm:text-base">
                   I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together.
                 </p>
                 <a
                   href="mailto:mattmac743@gmail.com"
-                  className="button-primary inline-flex items-center gap-2"
+                  className="button-primary inline-flex items-center gap-2 w-full sm:w-auto justify-center"
                 >
                   Get in Touch
                 </a>
@@ -745,21 +743,21 @@ const Home = () => {
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${visibleSections.has('experience') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Header */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
+            <div className="text-center mb-12 sm:mb-16 px-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
                 Experience
               </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 My professional journey, education, and extracurricular activities
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-12">
+            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
               {/* Main Experience Section */}
-              <div className="lg:col-span-2 space-y-8">
+              <div className="lg:col-span-2 space-y-6 lg:space-y-8">
                 {/* Professional Experience */}
-                <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-3xl p-8 border border-gray-700/30 shadow-2xl">
-                  <h3 className="text-3xl font-bold text-white mb-8">Professional Experience</h3>
+                <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-700/30 shadow-2xl">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">Professional Experience</h3>
                   <div className="space-y-6">
                     {experiences === null ? (
                       // Loading skeleton
@@ -791,7 +789,7 @@ const Home = () => {
                             )}
 
                             <div 
-                              className={`bg-gray-800 rounded-2xl shadow-2xl p-6 border-l-4 transition-all duration-200 hover:shadow-2xl group cursor-pointer relative
+                              className={`bg-gray-800 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 border-l-4 transition-all duration-200 hover:shadow-2xl group cursor-pointer relative
                                 ${isSameCompany ? 'border-blue-500 bg-gradient-to-r from-gray-800/50 to-gray-800' : 'border-blue-400'}
                                 hover:transform hover:-translate-y-1 hover:border-blue-300 hover:bg-gray-750`}
                               style={{
@@ -810,12 +808,12 @@ const Home = () => {
                               {/* <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 rounded-t-2xl"></div> */}
 
                               {/* Header */}
-                              <div className="flex items-start justify-between mb-4">
+                              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2">
                                 <div className="flex-1">
-                                  <h4 className="text-xl font-bold text-blue-100 mb-2 group-hover:text-blue-200 transition-colors">
+                                  <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 group-hover:text-blue-200 transition-colors">
                                     {exp.title}
                                   </h4>
-                                  <div className="flex items-center gap-3 mb-2">
+                                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-2">
                                     {exp.website ? (
                                       <a
                                         href={exp.website}
@@ -825,37 +823,37 @@ const Home = () => {
                                         onClick={(e) => e.stopPropagation()}
                                       >
                                         {exp.company}
-                                        <ExternalLink size={14} />
+                                        <ExternalLink size={12} />
                                       </a>
                                     ) : (
                                       <span className="text-blue-300 font-semibold">{exp.company}</span>
                                     )}
-                                    <div className="flex items-center gap-1 text-gray-300 text-sm">
+                                    <div className="flex items-center gap-1 text-gray-300 text-xs sm:text-sm">
                                       <span className="text-blue-400">•</span>
                                       {exp.location}
                                     </div>
                                   </div>
-                                  <div className="text-blue-400 text-sm font-semibold">
+                                  <div className="text-blue-400 text-xs sm:text-sm font-semibold">
                                     {exp.year}
                                   </div>
                                 </div>
 
-                                <div className="flex items-center gap-2">
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                                   {/* Career progression indicator */}
                                   {isSameCompany && (
-                                    <div className="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-semibold rounded-lg border border-green-500/30">
+                                    <div className="px-2 sm:px-3 py-1 bg-green-500/20 text-green-300 text-xs font-semibold rounded-lg border border-green-500/30">
                                       ↑ Promotion
                                     </div>
                                   )}
                                   
                                   {/* Expand/Collapse indicator */}
                                   <div className="flex items-center gap-2">
-                                    <span className="text-xs text-gray-400 font-medium">
+                                    <span className="text-xs text-gray-400 font-medium hidden sm:block">
                                       {expandedExperiences.has(index) ? 'Click to collapse' : 'Click to expand'}
                                     </span>
                                     <div className="p-2 hover:bg-gray-700 rounded-lg transition-all duration-200 hover:scale-110 bg-gray-700/50 group-hover:bg-blue-500/20">
                                       <div className={`transition-transform duration-300 ease-in-out ${expandedExperiences.has(index) ? 'rotate-180' : 'rotate-0'}`}>
-                                        <ChevronDown size={18} className="text-blue-400 group-hover:text-blue-300 transition-colors group-hover:animate-bounce" />
+                                        <ChevronDown size={16} className="text-blue-400 group-hover:text-blue-300 transition-colors group-hover:animate-bounce" />
                                       </div>
                                     </div>
                                   </div>
@@ -872,9 +870,9 @@ const Home = () => {
                               >
                                 <div className="space-y-3 pt-2">
                                   {exp.description.map((desc, descIndex) => (
-                                    <div key={descIndex} className="flex items-start gap-3">
-                                      <span className="text-blue-400 font-bold mt-1 text-lg">•</span>
-                                      <p className="text-gray-200 leading-relaxed text-sm">
+                                    <div key={descIndex} className="flex items-start gap-2 sm:gap-3">
+                                      <span className="text-blue-400 font-bold mt-1 text-sm sm:text-lg">•</span>
+                                      <p className="text-gray-200 leading-relaxed text-xs sm:text-sm">
                                         {desc}
                                       </p>
                                     </div>
@@ -890,8 +888,8 @@ const Home = () => {
                 </div>
 
                 {/* Education */}
-                <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-3xl p-8 border border-gray-700/30 shadow-2xl">
-                  <h3 className="text-3xl font-bold text-white mb-8">Education</h3>
+                <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-700/30 shadow-2xl">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">Education</h3>
                   <div className="space-y-6">
                     {education === null ? (
                       <div className="bg-gray-800 rounded-2xl shadow-2xl p-6 animate-pulse border border-gray-700">
@@ -901,26 +899,26 @@ const Home = () => {
                       </div>
                     ) : (
                       education.map((edu, index) => (
-                        <div key={index} className="bg-gray-800 rounded-2xl shadow-2xl p-6 border-l-4 border-green-500 transition-all duration-300 hover:shadow-2xl hover:transform hover:-translate-y-1 hover:border-green-400"
+                        <div key={index} className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 border-l-4 border-green-500 transition-all duration-300 hover:shadow-2xl hover:transform hover:-translate-y-1 hover:border-green-400"
                           style={{
                             background: 'linear-gradient(145deg, #1f2937 0%, #374151 50%, #1f2937 100%)',
                             border: '1px solid rgba(34, 197, 94, 0.2)'
                           }}
                                                   >
-                          <h4 className="text-xl font-bold text-green-100 mb-2">{edu.degree}</h4>
-                          <div className="flex items-center gap-3 mb-2">
+                          <h4 className="text-lg sm:text-xl font-bold text-green-100 mb-2">{edu.degree}</h4>
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-2">
                             <span className="text-green-300 font-semibold">{edu.school}</span>
-                            <div className="flex items-center gap-1 text-gray-300 text-sm">
+                            <div className="flex items-center gap-1 text-gray-300 text-xs sm:text-sm">
                               <span className="text-green-400">•</span>
                               {edu.location}
                             </div>
                           </div>
-                          <div className="text-green-400 text-sm font-semibold mb-3">
+                          <div className="text-green-400 text-xs sm:text-sm font-semibold mb-3">
                             {edu.year}
                           </div>
-                          <div className="flex items-start gap-3">
-                            <span className="text-green-400 font-bold text-lg leading-none">•</span>
-                            <p className="text-gray-200 text-sm">{edu.description}</p>
+                          <div className="flex items-start gap-2 sm:gap-3">
+                            <span className="text-green-400 font-bold text-sm sm:text-lg leading-none">•</span>
+                            <p className="text-gray-200 text-xs sm:text-sm">{edu.description}</p>
                           </div>
                         </div>
                       ))
@@ -930,10 +928,10 @@ const Home = () => {
               </div>
 
               {/* Sidebar */}
-              <div className="space-y-8">
+              <div className="space-y-6 lg:space-y-8">
                 {/* Technologies */}
-                <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-3xl p-8 border border-gray-700/30 shadow-2xl">
-                  <h3 className="text-2xl font-bold text-white mb-6">Technologies</h3>
+                <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-700/30 shadow-2xl">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Technologies</h3>
                   {technologies === null ? (
                     <div className="bg-gray-800 rounded-2xl shadow-2xl p-6 animate-pulse space-y-4 border border-gray-700">
                       <div className="h-4 bg-gray-700 rounded"></div>
@@ -941,36 +939,36 @@ const Home = () => {
                       <div className="h-4 bg-gray-700 rounded w-4/6"></div>
                     </div>
                   ) : (
-                    <div className="bg-gray-800 rounded-2xl shadow-2xl p-6 space-y-6 border border-gray-700"
+                    <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 space-y-4 sm:space-y-6 border border-gray-700"
                       style={{
                         background: 'linear-gradient(145deg, #1f2937 0%, #374151 50%, #1f2937 100%)'
                       }}
                     >
                       <div>
-                        <h4 className="text-lg font-semibold text-white mb-3">Frontend</h4>
-                        <div className="flex flex-wrap gap-2">
+                        <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Frontend</h4>
+                        <div className="flex flex-wrap gap-1 sm:gap-2">
                           {technologies.frontend.map((tech) => (
-                            <span key={tech} className="px-3 py-1 bg-gray-700 text-gray-300 text-sm font-medium rounded-full border border-gray-600 hover:bg-gray-600 hover:scale-105 transition-all duration-200">
+                            <span key={tech} className="px-2 sm:px-3 py-1 bg-gray-700 text-gray-300 text-xs sm:text-sm font-medium rounded-full border border-gray-600 hover:bg-gray-600 hover:scale-105 transition-all duration-200">
                               {tech}
                             </span>
                           ))}
                         </div>
                       </div>
                       <div>
-                        <h4 className="text-lg font-semibold text-white mb-3">Backend</h4>
-                        <div className="flex flex-wrap gap-2">
+                        <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Backend</h4>
+                        <div className="flex flex-wrap gap-1 sm:gap-2">
                           {technologies.backend.map((tech) => (
-                            <span key={tech} className="px-3 py-1 bg-gray-700 text-gray-300 text-sm font-medium rounded-full border border-gray-600 hover:bg-gray-600 hover:scale-105 transition-all duration-200">
+                            <span key={tech} className="px-2 sm:px-3 py-1 bg-gray-700 text-gray-300 text-xs sm:text-sm font-medium rounded-full border border-gray-600 hover:bg-gray-600 hover:scale-105 transition-all duration-200">
                               {tech}
                             </span>
                           ))}
                         </div>
                       </div>
                       <div>
-                        <h4 className="text-lg font-semibold text-white mb-3">Data Layer</h4>
-                        <div className="flex flex-wrap gap-2">
+                        <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Data Layer</h4>
+                        <div className="flex flex-wrap gap-1 sm:gap-2">
                           {technologies.dataLayer.map((tech) => (
-                            <span key={tech} className="px-3 py-1 bg-gray-700 text-gray-300 text-sm font-medium rounded-full border border-gray-600 hover:bg-gray-600 hover:scale-105 transition-all duration-200">
+                            <span key={tech} className="px-2 sm:px-3 py-1 bg-gray-700 text-gray-300 text-xs sm:text-sm font-medium rounded-full border border-gray-600 hover:bg-gray-600 hover:scale-105 transition-all duration-200">
                               {tech}
                             </span>
                           ))}
@@ -981,23 +979,24 @@ const Home = () => {
                 </div>
 
                 {/* Extracurricular Activities */}
-                <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-3xl p-8 border border-gray-700/30 shadow-2xl">
-                  <h3 className="text-2xl font-bold text-white mb-6">Extracurricular Activities</h3>
+                <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-700/30 shadow-2xl">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Extracurricular Activities</h3>
                   
                   {/* Category Filter */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
                     {categories.map((category) => (
                       <button
                         key={category.key}
                         onClick={() => setSelectedCategory(category.key)}
-                        className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-1
+                        className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-1
                           ${selectedCategory === category.key
                             ? 'bg-gray-600 text-white border border-gray-500'
                             : 'bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600'
                           }`}
                       >
                         {category.icon}
-                        {category.label}
+                        <span className="hidden sm:inline">{category.label}</span>
+                        <span className="sm:hidden">{category.label.split(' ')[0]}</span>
                       </button>
                     ))}
                   </div>
@@ -1012,7 +1011,7 @@ const Home = () => {
                       ))
                     ) : (
                       filteredExtracurriculars?.map((activity) => (
-                        <div key={activity.id} className="bg-gray-800 rounded-2xl shadow-2xl p-4 transition-all duration-300 hover:shadow-2xl hover:transform hover:-translate-y-1 cursor-pointer border border-gray-700"
+                        <div key={activity.id} className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-4 transition-all duration-300 hover:shadow-2xl hover:transform hover:-translate-y-1 cursor-pointer border border-gray-700"
                           style={{
                             background: 'linear-gradient(145deg, #1f2937 0%, #374151 50%, #1f2937 100%)',
                             position: 'relative',
@@ -1023,34 +1022,34 @@ const Home = () => {
 
 
                           <div className="flex items-start justify-between">
-                            <div className="flex items-center gap-3 mb-2">
-                              <div className="p-2 bg-gray-700 rounded-xl text-gray-300 w-10 h-10 flex items-center justify-center">
+                            <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                              <div className="p-1.5 sm:p-2 bg-gray-700 rounded-lg sm:rounded-xl text-gray-300 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
                                 {activity.icon}
                               </div>
                               <div>
-                                <h4 className="font-semibold text-white">{activity.title}</h4>
-                                <p className="text-sm text-gray-400">{activity.year}</p>
+                                <h4 className="font-semibold text-white text-sm sm:text-base">{activity.title}</h4>
+                                <p className="text-xs sm:text-sm text-gray-400">{activity.year}</p>
                               </div>
                             </div>
                             <button
                               className="p-1 hover:bg-gray-700 rounded-lg transition-colors"
                             >
-                              {activity.expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                              {activity.expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                             </button>
                           </div>
                           
-                          <p className="text-gray-300 text-sm mb-3">{activity.description}</p>
+                          <p className="text-gray-300 text-xs sm:text-sm mb-3">{activity.description}</p>
                           
                           {activity.expanded && (
-                            <div className="mt-4 space-y-3 animate-fade-in border-t border-gray-600 pt-4 bg-gray-700 rounded-lg p-3">
+                            <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 animate-fade-in border-t border-gray-600 pt-3 sm:pt-4 bg-gray-700 rounded-lg p-2 sm:p-3">
                               <div>
-                                <h5 className="font-medium text-white text-sm mb-2 flex items-center gap-1">
-                                  <Trophy size={14} className="text-gray-400" />
+                                <h5 className="font-medium text-white text-xs sm:text-sm mb-1 sm:mb-2 flex items-center gap-1">
+                                  <Trophy size={12} className="text-gray-400" />
                                   Key Achievements:
                                 </h5>
                                 <ul className="list-none space-y-1">
                                   {activity.achievements.map((achievement, index) => (
-                                    <li key={index} className="text-sm text-gray-300 flex items-start gap-2">
+                                    <li key={index} className="text-xs sm:text-sm text-gray-300 flex items-start gap-1 sm:gap-2">
                                       <span className="text-gray-400 font-bold mt-0.5">•</span>
                                       {achievement}
                                     </li>
@@ -1058,13 +1057,13 @@ const Home = () => {
                                 </ul>
                               </div>
                               <div>
-                                <h5 className="font-medium text-white text-sm mb-2 flex items-center gap-1">
-                                  <Code size={14} className="text-gray-400" />
+                                <h5 className="font-medium text-white text-xs sm:text-sm mb-1 sm:mb-2 flex items-center gap-1">
+                                  <Code size={12} className="text-gray-400" />
                                   Skills Developed:
                                 </h5>
                                 <div className="flex flex-wrap gap-1">
                                   {activity.skills.map((skill) => (
-                                    <span key={skill} className="px-2 py-1 bg-gray-600 text-gray-300 text-xs rounded-full border border-gray-500">
+                                    <span key={skill} className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-600 text-gray-300 text-xs rounded-full border border-gray-500">
                                       {skill}
                                     </span>
                                   ))}
@@ -1087,45 +1086,45 @@ const Home = () => {
       <section id="contact" className="py-20 bg-gradient-to-b from-gray-800 via-black to-black">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${visibleSections.has('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            <div className="text-center px-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
                 Get In Touch
               </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">
                 I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together.
               </p>
               
-              <div className="p-8 max-w-2xl mx-auto">
+              <div className="p-6 sm:p-8 max-w-2xl mx-auto">
                 <div className="space-y-6">
-                  <div className="flex items-center justify-center gap-4">
+                  <div className="flex items-center justify-center gap-3 sm:gap-4">
                     <a
                       href="https://github.com/mattmac02"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
+                      className="p-3 sm:p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
                     >
-                      <Github size={24} className="text-gray-300 group-hover:text-white" />
+                      <Github size={20} className="text-gray-300 group-hover:text-white sm:w-6 sm:h-6" />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/matthew-maceachern/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
+                      className="p-3 sm:p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
                     >
-                      <Linkedin size={24} className="text-gray-300 group-hover:text-white" />
+                      <Linkedin size={20} className="text-gray-300 group-hover:text-white sm:w-6 sm:h-6" />
                     </a>
                     <a
                       href="mailto:mattmac743@gmail.com"
-                      className="p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
+                      className="p-3 sm:p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
                     >
-                      <Mail size={24} className="text-gray-300 group-hover:text-white" />
+                      <Mail size={20} className="text-gray-300 group-hover:text-white sm:w-6 sm:h-6" />
                     </a>
                   </div>
                   
                   <div className="pt-4">
                     <a
                       href="mailto:mattmac743@gmail.com"
-                      className="button-primary inline-flex items-center gap-2"
+                      className="button-primary inline-flex items-center gap-2 w-full sm:w-auto justify-center"
                     >
                       Send Message
                     </a>

@@ -29,36 +29,36 @@ const About = () => {
     <div className="section-padding">
       <div className="container-max">
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+        <div className="text-center mb-12 sm:mb-16 px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
             About Me
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Full-Stack Engineer passionate about building impactful software
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Profile Image */}
-          <div className="order-2 lg:order-1">
+          <div className="order-2 lg:order-1 px-4 lg:px-0">
             {loading ? (
-              <div className="w-full max-w-md mx-auto">
-                <div className="aspect-square bg-gray-200 rounded-3xl animate-pulse"></div>
+              <div className="w-full max-w-sm sm:max-w-md mx-auto">
+                <div className="aspect-square bg-gray-200 rounded-2xl sm:rounded-3xl animate-pulse"></div>
               </div>
             ) : (
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-green-400 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-green-400 rounded-2xl sm:rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                 <img
                 src="/assets/headshot.jpeg"
                   alt="Matthew MacEachern"
-                  className="relative w-full max-w-md mx-auto rounded-3xl shadow-lg object-cover aspect-square"
+                  className="relative w-full max-w-sm sm:max-w-md mx-auto rounded-2xl sm:rounded-3xl shadow-lg object-cover aspect-square"
               />
               </div>
             )}
           </div>
 
           {/* Content Section */}
-          <div className="order-1 lg:order-2 space-y-8">
+          <div className="order-1 lg:order-2 space-y-8 px-4 lg:px-0">
             {loading ? (
               <div className="space-y-6">
                 <div className="h-12 bg-gray-200 rounded-xl animate-pulse"></div>
@@ -73,10 +73,10 @@ const About = () => {
               <>
                 {/* Introduction */}
                 <div className="space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
                   Hi there! I'm Matthew
                   </h2>
-                  <div className="flex items-center gap-3 text-lg text-blue-600 font-semibold">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-lg text-blue-600 font-semibold">
                     <span>Full-Stack Engineer</span>
                     <div className="flex items-center gap-1 text-gray-500">
                       <MapPin size={16} />
@@ -87,25 +87,25 @@ const About = () => {
 
                 {/* Bio */}
                 <div className="space-y-4 text-gray-600 leading-relaxed">
-                  <p className="text-lg">
+                  <p className="text-base sm:text-lg">
                     I'm a Computer Engineering graduate from Queen's University and currently a Full-Stack Engineer at Pivotal Life Sciences, where I develop AI-driven products to streamline the VC investment process.
                   </p>
-                  <p className="text-lg">
+                  <p className="text-base sm:text-lg">
                     I thrive at the intersection of engineering and data, bringing ideas to life through end-to-end development and close collaboration with cross-functional teams. Previously, I worked as an AI Engineer at MoneyLion, focusing on data infrastructure and model reliability.
                   </p>
-                  <p className="text-lg">
+                  <p className="text-base sm:text-lg">
                   I'm passionate about building and improving systems that make a difference in people's everyday lives through innovative software solutions.
                   </p>
                 </div>
 
                 {/* Skills Section */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-gray-900">Core Technologies</h3>
-                  <div className="flex flex-wrap gap-3">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Core Technologies</h3>
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     {skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className={`px-4 py-2 rounded-xl font-medium text-sm border-2 transition-all duration-200 hover:scale-105 cursor-pointer
+                        className={`px-3 sm:px-4 py-2 rounded-xl font-medium text-xs sm:text-sm border-2 transition-all duration-200 hover:scale-105 cursor-pointer
                           ${skill.color === 'blue' 
                             ? 'border-blue-200 text-blue-700 bg-blue-50 hover:bg-blue-100 hover:border-blue-300' 
                             : skill.color === 'green'
@@ -113,8 +113,8 @@ const About = () => {
                             : 'border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100 hover:border-gray-300'
                           }`}
                       >
-                        <div className="flex items-center gap-2">
-                          <span className="text-base">{skill.icon}</span>
+                        <div className="flex items-center gap-1 sm:gap-2">
+                          <span className="text-sm sm:text-base">{skill.icon}</span>
                           {skill.name}
                         </div>
                       </div>
@@ -132,7 +132,7 @@ const About = () => {
                       rel="noopener noreferrer"
                       className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 hover:scale-105 group"
                     >
-                      <Github size={20} className="text-gray-700 group-hover:text-gray-900" />
+                      <Github size={18} className="text-gray-700 group-hover:text-gray-900" />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/matthew-maceachern/"
@@ -140,13 +140,13 @@ const About = () => {
                       rel="noopener noreferrer"
                       className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 hover:scale-105 group"
                     >
-                      <Linkedin size={20} className="text-gray-700 group-hover:text-gray-900" />
+                      <Linkedin size={18} className="text-gray-700 group-hover:text-gray-900" />
                     </a>
                     <a
                       href="mailto:mattmac743@gmail.com"
                       className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 hover:scale-105 group"
                     >
-                      <Mail size={20} className="text-gray-700 group-hover:text-gray-900" />
+                      <Mail size={18} className="text-gray-700 group-hover:text-gray-900" />
                     </a>
                   </div>
 
@@ -154,7 +154,7 @@ const About = () => {
                   <a
                     href="/assets/Matthew_Resume.pdf"
                     download="Matthew_Resume.pdf"
-                    className="button-primary inline-flex items-center gap-2"
+                    className="button-primary inline-flex items-center gap-2 w-full sm:w-auto justify-center"
                   >
                     <Download size={18} />
                     Download Resume
@@ -166,14 +166,14 @@ const About = () => {
         </div>
 
         {/* World Map Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Places I've Been</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+        <div className="mt-16 sm:mt-20">
+          <div className="text-center mb-8 sm:mb-12 px-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">Places I've Been</h3>
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
               I love traveling and experiencing different cultures. Here are some of the countries I've visited.
             </p>
           </div>
-          <div className="bg-white rounded-3xl shadow-md p-8">
+          <div className="bg-white rounded-2xl sm:rounded-3xl shadow-md p-4 sm:p-6 lg:p-8 mx-4 sm:mx-0">
             <WorldMap visitedCountries={visitedCountries} />
           </div>
         </div>

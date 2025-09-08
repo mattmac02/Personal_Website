@@ -238,14 +238,14 @@ const Experience = () => {
   )
 
   return (
-    <Grid container spacing={3} sx={{ py: { xs: 3, md: 6 }, px: { xs: 2, md: 12 } }}>
+    <Grid container spacing={2} sx={{ py: { xs: 2, sm: 3, md: 6 }, px: { xs: 1, sm: 2, md: 12 } }}>
       {/* Main Experience Section */}
       <Grid item xs={12} md={8}>
         <Box sx={{
-          mb: { xs: 3, md: 4 },
-          p: { xs: 2, md: 3 },
+          mb: { xs: 2, sm: 3, md: 4 },
+          p: { xs: 1.5, sm: 2, md: 3 },
           background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.02) 0%, rgba(33, 150, 243, 0.03) 100%)',
-          borderRadius: 2,
+          borderRadius: { xs: 1.5, sm: 2 },
           border: '1px solid',
           borderColor: 'rgba(33, 150, 243, 0.08)'
         }}>
@@ -253,8 +253,8 @@ const Experience = () => {
             variant="h2"
             component="h1"
             sx={{
-              fontSize: { xs: '1.75rem', md: '2.5rem' },
-              mb: 2,
+              fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2.5rem' },
+              mb: { xs: 1.5, sm: 2 },
               color: 'primary.main',
               fontWeight: 600
             }}
@@ -262,7 +262,7 @@ const Experience = () => {
             Professional Experience
           </Typography>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1.5, sm: 2 } }}>
             {experiences === null ? (
               <>{loadingSkeleton}</>
             ) : (
@@ -329,8 +329,8 @@ const Experience = () => {
                         }
                       }}
                     >
-                      <CardContent sx={{ p: 2.5 }}>
-                        <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 1.5 }}>
+                      <CardContent sx={{ p: { xs: 2, sm: 2.5 } }}>
+                        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'flex-start' }, justifyContent: { xs: 'flex-start', sm: 'space-between' }, mb: 1.5, gap: { xs: 1, sm: 0 } }}>
                           <Box sx={{ flex: 1 }}>
                             <Typography
                               variant="h5"

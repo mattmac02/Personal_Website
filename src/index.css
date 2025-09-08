@@ -37,21 +37,23 @@
   }
   
   .button-primary {
-    @apply px-6 py-3 bg-white text-black font-medium rounded-xl 
+    @apply px-4 sm:px-6 py-2 sm:py-3 bg-white text-black font-medium rounded-xl 
            transition-all duration-200 ease-out
            hover:bg-gray-200 hover:scale-105 hover:shadow-lg
-           focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black;
+           focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black
+           text-sm sm:text-base;
   }
   
   .button-secondary {
-    @apply px-6 py-3 bg-gray-900 text-white font-medium rounded-xl 
+    @apply px-4 sm:px-6 py-2 sm:py-3 bg-gray-900 text-white font-medium rounded-xl 
            transition-all duration-200 ease-out
            hover:bg-gray-800 hover:scale-105 border border-gray-700
-           focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-black;
+           focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-black
+           text-sm sm:text-base;
   }
   
   .section-padding {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
+    @apply py-12 sm:py-16 px-4 sm:px-6 lg:px-8;
   }
   
   .container-max {

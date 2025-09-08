@@ -54,8 +54,9 @@ const Navbar = () => {
             className="flex items-center cursor-pointer group"
             onClick={() => scrollToSection('#hero')}
           >
-            <h1 className="text-xl font-bold gradient-text tracking-tight">
-          Matthew MacEachern
+            <h1 className="text-lg sm:text-xl font-bold gradient-text tracking-tight">
+              <span className="hidden sm:inline">Matthew MacEachern</span>
+              <span className="sm:hidden">M. MacEachern</span>
             </h1>
           </div>
 
