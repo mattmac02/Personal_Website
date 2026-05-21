@@ -12,6 +12,13 @@ interface Project {
 
 const fetchProjectsData = (): Promise<Project[]> => new Promise(resolve => setTimeout(() => resolve([
   {
+    title: 'BlackCat Bio',
+    description: 'AI platform for clinical trials—drafts statistical analysis plans in days with FDA-grounded, source-traced outputs and expert statistician review.',
+    image: '/assets/blackcat_bio.png',
+    url: 'https://blackcatbio.ai/',
+    technologies: ['AI', 'Full-Stack', 'Biotech', 'Regulatory'],
+  },
+  {
     title: 'Trackaroo',
     description: 'A one stop shop for your job application journey built with React in TypeScript, Supabase, and Netlify.',
     image: './assets/trackaroo_logo.jpeg',

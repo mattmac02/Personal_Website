@@ -1,6 +1,7 @@
 import { Linkedin, Github, Download, Mail, MapPin } from 'lucide-react'
 import { useState, useEffect } from 'react'
-import { FaReact, FaPython, FaAws, FaDatabase, FaNodeJs, FaDocker } from 'react-icons/fa'
+import { FaReact, FaPython, FaAws, FaDatabase, FaNodeJs } from 'react-icons/fa'
+import { SiRuby } from 'react-icons/si'
 import WorldMap from '../components/WorldMap'
 
 const About = () => {
@@ -15,10 +16,10 @@ const About = () => {
   const skills = [
     { name: 'React', icon: <FaReact />, color: 'blue' as const },
     { name: 'Python', icon: <FaPython />, color: 'green' as const },
+    { name: 'Ruby', icon: <SiRuby />, color: 'red' as const },
     { name: 'AWS', icon: <FaAws />, color: 'gray' as const },
     { name: 'Node.js', icon: <FaNodeJs />, color: 'blue' as const },
     { name: 'Databases', icon: <FaDatabase />, color: 'green' as const },
-    { name: 'Docker', icon: <FaDocker />, color: 'gray' as const }
   ]
 
   const visitedCountries = [
@@ -34,7 +35,7 @@ const About = () => {
             About Me
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Full-Stack Engineer passionate about building impactful software
+            Software Engineer passionate about building impactful software
           </p>
         </div>
 
@@ -77,10 +78,10 @@ const About = () => {
                   Hi there! I'm Matthew
                   </h2>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-lg text-blue-600 font-semibold">
-                    <span>Full-Stack Engineer</span>
+                    <span>Software Engineer</span>
                     <div className="flex items-center gap-1 text-gray-500">
                       <MapPin size={16} />
-                      <span className="text-sm">San Francisco, CA</span>
+                      <span className="text-sm">Toronto, CA</span>
                     </div>
                   </div>
                 </div>
@@ -88,13 +89,13 @@ const About = () => {
                 {/* Bio */}
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p className="text-base sm:text-lg">
-                    I'm a Computer Engineering graduate from Queen's University and currently a Full-Stack Engineer at Pivotal Life Sciences, where I develop AI-driven products to streamline the VC investment process.
+                    I'm a Software Engineer at Shopify on the Financial Services team, building merchant-facing payments and financial products at global scale.
                   </p>
                   <p className="text-base sm:text-lg">
-                    I thrive at the intersection of engineering and data, bringing ideas to life through end-to-end development and close collaboration with cross-functional teams. Previously, I worked as an AI Engineer at MoneyLion, focusing on data infrastructure and model reliability.
+                    Before Shopify, I was a Full Stack Engineer at Pivotal Life Sciences, where I built AI-driven investment tools used daily by investors and researchers. I thrive at the intersection of product and engineering—shipping reliable systems, collaborating across disciplines, and turning complex domains into software people actually use.
                   </p>
                   <p className="text-base sm:text-lg">
-                  I'm passionate about building and improving systems that make a difference in people's everyday lives through innovative software solutions.
+                    I'm passionate about building systems that make a real difference—whether that's moving money for millions of merchants or helping teams make better decisions with data.
                   </p>
                 </div>
 
@@ -110,6 +111,8 @@ const About = () => {
                             ? 'border-blue-200 text-blue-700 bg-blue-50 hover:bg-blue-100 hover:border-blue-300' 
                             : skill.color === 'green'
                             ? 'border-green-200 text-green-700 bg-green-50 hover:bg-green-100 hover:border-green-300'
+                            : skill.color === 'red'
+                            ? 'border-red-200 text-red-700 bg-red-50 hover:bg-red-100 hover:border-red-300'
                             : 'border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100 hover:border-gray-300'
                           }`}
                       >

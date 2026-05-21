@@ -11,6 +11,14 @@ interface Experience {
   website?: string
 }
 
+const companyLogos: Record<string, string> = {
+  'Shopify': '/assets/logos/shopify.png',
+  'Pivotal Life Sciences': '/assets/logos/pivotal.png',
+  'MoneyLion': '/assets/logos/moneylion.png',
+  'The Cansbridge Fellowship': '/assets/logos/cansbridge.png',
+  'Cansbridge Fellowship': '/assets/logos/cansbridge.png',
+}
+
 interface Education {
   year: string
   degree: string
@@ -38,6 +46,17 @@ interface Technologies {
 }
 
 const fetchExperienceData = () => new Promise(resolve => setTimeout(() => resolve([
+  {
+    year: '2025',
+    title: 'Software Engineer',
+    location: 'Toronto, CA',
+    company: 'Shopify',
+    website: 'https://www.shopify.com',
+    description: [
+      'Software Engineer on the Financial Services team, building products that power merchant payments, money movement, and financial tooling at global scale.',
+      'Ship full-stack features and services with a focus on reliability, performance, and clear APIs for internal and merchant-facing workflows.',
+    ],
+  },
   {
     year: '2025',
     title: 'Full-Stack Engineer I',
@@ -115,8 +134,8 @@ const fetchEducationData = () => new Promise(resolve => setTimeout(() => resolve
 ]), 250))
 
 const fetchTechnologiesData = () => new Promise(resolve => setTimeout(() => resolve({
-  frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'MaterialUI', 'Auth0', 'Datadog', 'Heroku', 'Dependabot'],
-  backend: ['Python', 'SQL', 'Node.js', 'AWS CDK', 'AWS Lambda', 'API Gateway', 'RDS', 'CodePipeline'],
+  frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'MaterialUI', 'Auth0', 'Datadog', 'Dependabot'],
+  backend: ['Python', 'Ruby', 'SQL', 'Node.js', 'AWS CDK', 'AWS Lambda', 'API Gateway', 'RDS', 'CodePipeline'],
   dataLayer: ['Apache Airflow', 'AWS Athena', 'Warehouse']
 }), 250))
 
@@ -345,6 +364,14 @@ const Experience = () => {
                               {exp.title}
                             </Typography>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 0.5 }}>
+                              {companyLogos[exp.company] && (
+                                <Box
+                                  component="img"
+                                  src={companyLogos[exp.company]}
+                                  alt={`${exp.company} logo`}
+                                  sx={{ width: 22, height: 22, borderRadius: 0.5, objectFit: 'contain' }}
+                                />
+                              )}
                               {exp.website ? (
                                 <Link
                                   href={exp.website}
