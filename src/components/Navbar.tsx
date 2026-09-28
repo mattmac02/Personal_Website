@@ -40,25 +40,45 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Treat the mobile menu as a modal surface: prevent the page behind it from
+  // moving, support Escape, and restore scrolling when it closes/unmounts.
+  useEffect(() => {
+    if (!mobileOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileOpen(false)
+    }
+    window.addEventListener('keydown', closeOnEscape)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [mobileOpen])
+
   const isActive = (href: string) => {
     const section = href.replace('#', '')
     return activeSection === section
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav aria-label="Primary navigation" className="fixed top-0 left-0 right-0 z-50 bg-black/75 backdrop-blur-xl border-b border-white/10 md:bg-transparent md:border-transparent">
       <div className="container-max px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div 
-            className="flex items-center cursor-pointer group"
+          <button
+            type="button"
+            aria-label="Back to top"
+            className="flex min-h-11 min-w-0 max-w-[calc(100%-3.5rem)] items-center rounded-lg text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             onClick={() => scrollToSection('#hero')}
           >
-            <h1 className="text-lg sm:text-xl font-bold gradient-text tracking-tight">
+            <span className="text-lg sm:text-xl font-bold gradient-text tracking-tight break-words">
               <span className="hidden sm:inline">Matthew MacEachern</span>
               <span className="sm:hidden">M. MacEachern</span>
-            </h1>
-          </div>
+            </span>
+          </button>
 
           {/* Desktop Navigation - Giant Pill */}
           <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
@@ -67,9 +87,9 @@ const Navbar = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 ease-out mx-1
-                    ${isActive(item.href) 
-                      ? 'bg-white/10 text-white shadow-lg' 
+                  className={`min-h-11 px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 ease-out mx-1
+                    ${isActive(item.href)
+                      ? 'bg-white/10 text-white shadow-lg'
                       : 'text-gray-300 hover:text-white hover:bg-white/5'
                     }
                     hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black`}
@@ -82,9 +102,13 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button
+            type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 
+            className="md:hidden inline-flex size-11 items-center justify-center rounded-xl text-gray-300 hover:text-white hover:bg-white/5
                      transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/20"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -92,13 +116,13 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {mobileOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-md rounded-2xl mt-2 shadow-2xl border border-white/10">
+          <div id="mobile-navigation" className="md:hidden fixed inset-x-0 top-16 h-[calc(100dvh-4rem)] bg-black/60 px-4 pt-3" onClick={() => setMobileOpen(false)}>
+            <div className="px-2 py-2 space-y-2 bg-black/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/10" onClick={(event) => event.stopPropagation()}>
               {menuItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className={`w-full text-left px-4 py-3 rounded-xl font-medium text-sm transition-all duration-200
+                  className={`w-full min-h-11 text-left px-4 py-3 rounded-xl font-medium text-base transition-all duration-200
                     ${isActive(item.href)
                       ? 'bg-white/10 text-white'
                       : 'text-gray-300 hover:text-white hover:bg-white/5'
