@@ -265,9 +265,9 @@ const Home = () => {
     }, 250)
 
     Promise.all([
-      fetchExperienceData(), 
-      fetchEducationData(), 
-      fetchTechnologiesData(), 
+      fetchExperienceData(),
+      fetchEducationData(),
+      fetchTechnologiesData(),
       fetchExtracurricularData(),
       fetchProjectsData()
     ]).then(([expData, eduData, techData, extracurricularsData, projectsData]) => {
@@ -327,7 +327,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800 relative overflow-hidden">
+      <section id="hero" className="min-h-[100svh] flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800 relative overflow-hidden pt-20 pb-10 sm:py-24">
         {/* Smooth transition overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-800 to-transparent pointer-events-none"></div>
         {/* Animated background elements */}
@@ -335,7 +335,7 @@ const Home = () => {
           <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-          
+
           {/* Floating tech icons */}
           <div className="absolute top-20 right-20 text-blue-400/20 animate-float">
             <FaReact size={40} />
@@ -349,7 +349,7 @@ const Home = () => {
           <div className="absolute bottom-1/3 right-10 text-yellow-400/20 animate-float" style={{ animationDelay: '1.5s' }}>
             <FaAws size={40} />
           </div>
-          
+
           {/* Particle effects */}
           <div className="absolute w-2 h-2 bg-blue-400/30 rounded-full animate-particle" style={{ left: '10%', animationDelay: '0s' }}></div>
           <div className="absolute w-1 h-1 bg-green-400/30 rounded-full animate-particle" style={{ left: '20%', animationDelay: '1s' }}></div>
@@ -363,14 +363,14 @@ const Home = () => {
         <div className="container-max text-center px-4 sm:px-6 lg:px-8 relative z-10">
           <div className={`transition-all duration-1000 ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Animated greeting */}
-            <div className="mb-8">
+            <div className="mb-5 sm:mb-8">
               <span className="text-lg md:text-xl text-blue-400 font-medium animate-fade-in">
                 Hello, I'm
               </span>
             </div>
 
             {/* Main name with enhanced animation */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 tracking-tight relative">
+            <h1 className="text-[clamp(2.25rem,12vw,4.5rem)] leading-[1.05] font-bold mb-5 sm:mb-6 tracking-tight relative break-words">
               <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent animate-gradient-x">
                 Matthew MacEachern
               </span>
@@ -379,14 +379,14 @@ const Home = () => {
             </h1>
 
             {/* Animated subtitle */}
-            <div className="mb-8">
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay px-4">
+            <div className="mb-7 sm:mb-8">
+              <p className="text-base sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-7 sm:leading-relaxed animate-fade-in-delay">
                 Full-Stack Engineer passionate about building impactful software
               </p>
             </div>
 
             {/* Animated stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 animate-fade-in-delay-3 max-w-4xl mx-auto px-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-5 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 animate-fade-in-delay-3 max-w-4xl mx-auto">
               <div className="text-center animate-float" style={{ animationDelay: '0s' }}>
                 <div className="text-xl sm:text-2xl font-bold text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">2+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Years Experience</div>
@@ -408,7 +408,7 @@ const Home = () => {
             </div>
 
             {/* Enhanced CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-4 px-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in-delay-4">
               <a
                 href="#about"
                 className="button-primary inline-flex items-center justify-center gap-2 group w-full sm:w-auto"
@@ -434,13 +434,13 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-b from-gray-800 via-gray-800/95 to-gray-900 relative">
+      <section id="about" className="py-14 sm:py-20 bg-gradient-to-b from-gray-800 via-gray-800/95 to-gray-900 relative">
         {/* Smooth transition overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none"></div>
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Header */}
-            <div className="text-center mb-16 px-4">
+            <div className="text-center mb-10 sm:mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
                 About Me
               </h2>
@@ -451,7 +451,7 @@ const Home = () => {
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
               {/* Profile Image */}
-              <div className="order-2 lg:order-1 px-4 lg:px-0">
+              <div className="order-2 lg:order-1 lg:px-0">
                 {loading ? (
                   <div className="w-full max-w-sm sm:max-w-md mx-auto">
                     <div className="aspect-square bg-gray-700 rounded-3xl animate-pulse"></div>
@@ -469,7 +469,7 @@ const Home = () => {
               </div>
 
               {/* Content Section */}
-              <div className="order-1 lg:order-2 space-y-8 px-4 lg:px-0">
+              <div className="order-1 lg:order-2 space-y-7 sm:space-y-8 lg:px-0">
                 {loading ? (
                   <div className="space-y-6">
                     <div className="h-12 bg-gray-700 rounded-xl animate-pulse"></div>
@@ -517,8 +517,8 @@ const Home = () => {
                           <div
                             key={skill.name}
                             className={`px-3 sm:px-4 py-2 rounded-xl font-medium text-xs sm:text-sm border-2 transition-all duration-200 hover:scale-105 cursor-pointer
-                              ${skill.color === 'blue' 
-                                ? 'border-blue-500/30 text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 hover:border-blue-500/50' 
+                              ${skill.color === 'blue'
+                                ? 'border-blue-500/30 text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 hover:border-blue-500/50'
                                 : skill.color === 'green'
                                 ? 'border-green-500/30 text-green-400 bg-green-500/10 hover:bg-green-500/20 hover:border-green-500/50'
                                 : skill.color === 'orange'
@@ -545,7 +545,7 @@ const Home = () => {
                           href="https://github.com/mattmac02"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
+                          className="inline-flex size-11 items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
                         >
                           <Github size={18} className="text-gray-300 group-hover:text-white" />
                         </a>
@@ -553,13 +553,13 @@ const Home = () => {
                           href="https://www.linkedin.com/in/matthew-maceachern/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
+                          className="inline-flex size-11 items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
                         >
                           <Linkedin size={18} className="text-gray-300 group-hover:text-white" />
                         </a>
                         <a
                           href="mailto:mattmac743@gmail.com"
-                          className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
+                          className="inline-flex size-11 items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-700"
                         >
                           <Mail size={18} className="text-gray-300 group-hover:text-white" />
                         </a>
@@ -578,7 +578,7 @@ const Home = () => {
                   I love traveling and experiencing different cultures. Here are some of the countries I've visited.
                 </p>
               </div>
-              
+
               {/* Travel Statistics */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 px-4">
                 <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-2xl p-4 sm:p-6 border border-blue-500/20 text-center">
@@ -598,7 +598,7 @@ const Home = () => {
                   <div className="text-gray-300 text-xs sm:text-sm">World Continents</div>
                 </div>
               </div>
-              
+
               <div className="bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-700 mx-4 sm:mx-0">
                 <WorldMap visitedCountries={visitedCountries} />
               </div>
@@ -608,11 +608,11 @@ const Home = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gradient-to-b from-gray-900 via-black to-black">
+      <section id="projects" className="py-14 sm:py-20 bg-gradient-to-b from-gray-900 via-black to-black">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${visibleSections.has('projects') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Header Section */}
-            <div className="text-center mb-12 sm:mb-16 px-4">
+            <div className="text-center mb-10 sm:mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
                 Projects
               </h2>
@@ -646,7 +646,7 @@ const Home = () => {
                 projects.map((project, index) => (
                   <div
                     key={index}
-                    className="group bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-700 relative transition-all duration-500 ease-out hover:shadow-3xl hover:-translate-y-1 hover:rounded-3xl"
+                    className="group bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-gray-700 relative transition-all duration-500 ease-out hover:shadow-3xl hover:-translate-y-1"
                   >
                     {/* Project Image */}
                     <div className="relative overflow-hidden">
@@ -656,9 +656,9 @@ const Home = () => {
                         className="w-full h-48 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
+
                       {/* External Link Icon */}
-                      <div className="absolute top-4 right-4 p-2 bg-gray-800/95 backdrop-blur-sm rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 border border-gray-600 shadow-lg">
+                      <div className="absolute top-3 right-3 flex size-11 items-center justify-center bg-gray-800/95 backdrop-blur-sm rounded-xl opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 md:translate-y-2 md:group-hover:translate-y-0 border border-gray-600 shadow-lg">
                         {project.url.startsWith('http') ? (
                           <ExternalLink size={16} className="text-gray-300" />
                         ) : (
@@ -668,7 +668,7 @@ const Home = () => {
                     </div>
 
                     {/* Project Content */}
-                    <div className="p-6 space-y-4 relative z-20 bg-gray-800">
+                    <div className="p-5 sm:p-6 space-y-4 relative z-20 bg-gray-800">
                       {/* Title and Description */}
                       <div className="space-y-3">
                         <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
@@ -737,13 +737,13 @@ const Home = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 bg-gradient-to-b from-black via-gray-900 to-gray-800 relative">
+      <section id="experience" className="py-14 sm:py-20 bg-gradient-to-b from-black via-gray-900 to-gray-800 relative">
         {/* Smooth transition overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-800 to-transparent pointer-events-none"></div>
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${visibleSections.has('experience') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Header */}
-            <div className="text-center mb-12 sm:mb-16 px-4">
+            <div className="text-center mb-10 sm:mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
                 Experience
               </h2>
@@ -775,7 +775,7 @@ const Home = () => {
                       experiences.map((exp, index) => {
                         const isSameCompany = index > 0 && experiences[index - 1].company === exp.company
                         const isLastInCompany = index === experiences.length - 1 || experiences[index + 1].company !== exp.company
-                        
+
                         return (
                           <div key={index} className="relative">
                             {/* Connecting line for same company progression */}
@@ -788,7 +788,7 @@ const Home = () => {
                               <div className="absolute left-6 bottom-[-16px] w-0.5 h-4 bg-gradient-to-b from-blue-400 to-blue-500 z-10"></div>
                             )}
 
-                            <div 
+                            <div
                               className={`bg-gray-800 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 border-l-4 transition-all duration-200 hover:shadow-2xl group cursor-pointer relative
                                 ${isSameCompany ? 'border-blue-500 bg-gradient-to-r from-gray-800/50 to-gray-800' : 'border-blue-400'}
                                 hover:transform hover:-translate-y-1 hover:border-blue-300 hover:bg-gray-750`}
@@ -845,7 +845,7 @@ const Home = () => {
                                       ↑ Promotion
                                     </div>
                                   )}
-                                  
+
                                   {/* Expand/Collapse indicator */}
                                   <div className="flex items-center gap-2">
                                     <span className="text-xs text-gray-400 font-medium hidden sm:block">
@@ -861,10 +861,10 @@ const Home = () => {
                               </div>
 
                               {/* Description */}
-                              <div 
+                              <div
                                 className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                                  expandedExperiences.has(index) 
-                                    ? 'max-h-96 opacity-100' 
+                                  expandedExperiences.has(index)
+                                    ? 'max-h-96 opacity-100'
                                     : 'max-h-0 opacity-0'
                                 }`}
                               >
@@ -981,14 +981,14 @@ const Home = () => {
                 {/* Extracurricular Activities */}
                 <div className="bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-700/30 shadow-2xl">
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Extracurricular Activities</h3>
-                  
+
                   {/* Category Filter */}
                   <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
                     {categories.map((category) => (
                       <button
                         key={category.key}
                         onClick={() => setSelectedCategory(category.key)}
-                        className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-1
+                        className={`min-h-11 px-3 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2
                           ${selectedCategory === category.key
                             ? 'bg-gray-600 text-white border border-gray-500'
                             : 'bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600'
@@ -1032,14 +1032,16 @@ const Home = () => {
                               </div>
                             </div>
                             <button
-                              className="p-1 hover:bg-gray-700 rounded-lg transition-colors"
+                              type="button"
+                              aria-label={`${activity.expanded ? 'Collapse' : 'Expand'} ${activity.title}`}
+                              className="inline-flex size-11 shrink-0 items-center justify-center hover:bg-gray-700 rounded-lg transition-colors"
                             >
                               {activity.expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                             </button>
                           </div>
-                          
+
                           <p className="text-gray-300 text-xs sm:text-sm mb-3">{activity.description}</p>
-                          
+
                           {activity.expanded && (
                             <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 animate-fade-in border-t border-gray-600 pt-3 sm:pt-4 bg-gray-700 rounded-lg p-2 sm:p-3">
                               <div>
@@ -1083,7 +1085,7 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-b from-gray-800 via-black to-black">
+      <section id="contact" className="py-14 sm:py-20 bg-gradient-to-b from-gray-800 via-black to-black">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${visibleSections.has('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="text-center px-4">
@@ -1093,7 +1095,7 @@ const Home = () => {
               <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">
                 I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together.
               </p>
-              
+
               <div className="p-6 sm:p-8 max-w-2xl mx-auto">
                 <div className="space-y-6">
                   <div className="flex items-center justify-center gap-3 sm:gap-4">
@@ -1101,7 +1103,7 @@ const Home = () => {
                       href="https://github.com/mattmac02"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 sm:p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
+                      className="inline-flex size-11 sm:size-14 items-center justify-center bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
                     >
                       <Github size={20} className="text-gray-300 group-hover:text-white sm:w-6 sm:h-6" />
                     </a>
@@ -1109,18 +1111,18 @@ const Home = () => {
                       href="https://www.linkedin.com/in/matthew-maceachern/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 sm:p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
+                      className="inline-flex size-11 sm:size-14 items-center justify-center bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
                     >
                       <Linkedin size={20} className="text-gray-300 group-hover:text-white sm:w-6 sm:h-6" />
                     </a>
                     <a
                       href="mailto:mattmac743@gmail.com"
-                      className="p-3 sm:p-4 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
+                      className="inline-flex size-11 sm:size-14 items-center justify-center bg-gray-700 hover:bg-gray-600 rounded-xl transition-all duration-200 hover:scale-105 group border border-gray-600"
                     >
                       <Mail size={20} className="text-gray-300 group-hover:text-white sm:w-6 sm:h-6" />
                     </a>
                   </div>
-                  
+
                   <div className="pt-4">
                     <a
                       href="mailto:mattmac743@gmail.com"
@@ -1139,4 +1141,4 @@ const Home = () => {
   )
 }
 
-export default Home 
+export default Home
