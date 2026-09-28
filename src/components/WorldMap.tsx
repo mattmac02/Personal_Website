@@ -35,8 +35,8 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     const polygonSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
         geoJSON: am5geodata_worldLow,
-        fill: am5.color(0x374151), // Dark gray background for unvisited countries
-        stroke: am5.color(0x4b5563),
+        fill: am5.color(0x202a42),
+        stroke: am5.color(0x0b1020),
         exclude: ['AQ'] // Exclude Antarctica
       })
     )
@@ -56,13 +56,13 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     // Add hover effects for unvisited countries
     polygonSeries.mapPolygons.template.states.create('hover', {
       fillOpacity: 1,
-      fill: am5.color(0x4b5563) // Slightly lighter gray on hover
+      fill: am5.color(0x33415f)
     })
 
     // Create filtered geoJSON with only visited countries
     const visitedGeoJSON = {
       type: 'FeatureCollection' as const,
-      features: am5geodata_worldLow.features.filter(feature => 
+      features: am5geodata_worldLow.features.filter(feature =>
         feature.properties && visitedCountries.includes(feature.properties.id)
       )
     }
@@ -71,8 +71,8 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     const visitedSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
         geoJSON: visitedGeoJSON,
-        fill: am5.color(0x3b82f6), // Blue-500 from Tailwind
-        stroke: am5.color(0x60a5fa)
+        fill: am5.color(0x9aa8ff),
+        stroke: am5.color(0x0b1020)
       })
     )
 
@@ -91,7 +91,7 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     // Add hover effects for visited countries
     visitedSeries.mapPolygons.template.states.create('hover', {
       fillOpacity: 1,
-      fill: am5.color(0x2563eb) // Blue-600 from Tailwind
+      fill: am5.color(0x62e6d2)
     })
 
     // Add legend
@@ -109,11 +109,11 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     legend.data.setAll([
       {
         name: 'Visited Countries',
-        fill: am5.color(0x3b82f6) // Blue-500 from Tailwind
+        fill: am5.color(0x9aa8ff)
       },
       {
         name: 'Not Visited',
-        fill: am5.color(0x374151) // Dark gray
+        fill: am5.color(0x202a42)
       }
     ])
 
@@ -127,10 +127,10 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     <div className="w-full">
       <div
         id="world-map-container"
-        className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-gray-700"
+        className="h-64 w-full overflow-hidden sm:h-80 md:h-96 lg:h-[440px]"
       />
     </div>
   )
 }
 
-export default WorldMap 
+export default WorldMap
