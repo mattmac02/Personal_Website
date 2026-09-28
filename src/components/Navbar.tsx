@@ -1,117 +1,47 @@
 import { Menu, X } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+const links = [
+  { label: 'About', href: '#about' },
+  { label: 'Work', href: '#projects' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Contact', href: '#contact' },
+]
 
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('hero')
+  const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('hero')
 
-  const menuItems = [
-    { text: 'About', href: '#about' },
-    { text: 'Projects', href: '#projects' },
-    { text: 'Experience', href: '#experience' },
-    { text: 'Contact', href: '#contact' },
-  ]
-
-  // Handle smooth scrolling to sections
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-    setMobileOpen(false)
-  }
-
-  // Update active section based on scroll position
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['hero', 'about', 'projects', 'experience', 'contact']
-      const scrollPosition = window.scrollY + 100
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i])
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i])
-          break
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.isIntersecting && setActive(entry.target.id))
+    }, { rootMargin: '-20% 0px -70%' })
+    document.querySelectorAll('section[id]').forEach(section => observer.observe(section))
+    return () => observer.disconnect()
   }, [])
 
-  const isActive = (href: string) => {
-    const section = href.replace('#', '')
-    return activeSection === section
-  }
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="container-max px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div 
-            className="flex items-center cursor-pointer group"
-            onClick={() => scrollToSection('#hero')}
-          >
-            <h1 className="text-lg sm:text-xl font-bold gradient-text tracking-tight">
-              <span className="hidden sm:inline">Matthew MacEachern</span>
-              <span className="sm:hidden">M. MacEachern</span>
-            </h1>
-          </div>
-
-          {/* Desktop Navigation - Giant Pill */}
-          <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
-            <div className="bg-gray-900/50 backdrop-blur-md rounded-full p-1 border border-gray-700/50 shadow-xl">
-              {menuItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 ease-out mx-1
-                    ${isActive(item.href) 
-                      ? 'bg-white/10 text-white shadow-lg' 
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
-                    }
-                    hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black`}
-                >
-                  {item.text}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 
-                     transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/20"
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-md rounded-2xl mt-2 shadow-2xl border border-white/10">
-              {menuItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`w-full text-left px-4 py-3 rounded-xl font-medium text-sm transition-all duration-200
-                    ${isActive(item.href)
-                      ? 'bg-white/10 text-white'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
-                    }`}
-                >
-                  {item.text}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-sm">
+      <div className="container-max flex h-16 items-center justify-between">
+        <a href="#hero" className="text-sm font-bold tracking-tight text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Matthew MacEachern</a>
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary navigation">
+          {links.map(link => (
+            <a key={link.href} href={link.href} className={`border-b-2 py-5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${active === link.href.slice(1) ? 'border-primary text-ink' : 'border-transparent text-muted hover:text-ink'}`}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <a href="mailto:mattmac743@gmail.com" className="button-primary hidden !min-h-9 !px-4 !py-1.5 md:inline-flex">Get in touch</a>
+        <button type="button" onClick={() => setOpen(!open)} className="inline-flex h-10 w-10 items-center justify-center text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
-    </nav>
+      {open && (
+        <nav className="border-t border-border bg-surface px-5 py-3 md:hidden" aria-label="Mobile navigation">
+          {links.map(link => <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="block border-b border-border py-3 text-base font-medium text-ink last:border-0">{link.label}</a>)}
+        </nav>
+      )}
+    </header>
   )
 }
 
