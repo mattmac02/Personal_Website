@@ -35,8 +35,8 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     const polygonSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
         geoJSON: am5geodata_worldLow,
-        fill: am5.color(0xd8dee7),
-        stroke: am5.color(0xffffff),
+        fill: am5.color(0x202a42),
+        stroke: am5.color(0x0b1020),
         exclude: ['AQ'] // Exclude Antarctica
       })
     )
@@ -56,7 +56,7 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     // Add hover effects for unvisited countries
     polygonSeries.mapPolygons.template.states.create('hover', {
       fillOpacity: 1,
-      fill: am5.color(0xcbd5e1)
+      fill: am5.color(0x33415f)
     })
 
     // Create filtered geoJSON with only visited countries
@@ -71,8 +71,8 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     const visitedSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
         geoJSON: visitedGeoJSON,
-        fill: am5.color(0x174ea6),
-        stroke: am5.color(0xffffff)
+        fill: am5.color(0x9aa8ff),
+        stroke: am5.color(0x0b1020)
       })
     )
 
@@ -91,7 +91,7 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     // Add hover effects for visited countries
     visitedSeries.mapPolygons.template.states.create('hover', {
       fillOpacity: 1,
-      fill: am5.color(0x123d82)
+      fill: am5.color(0x62e6d2)
     })
 
     // Add legend
@@ -109,11 +109,11 @@ const WorldMap = ({ visitedCountries }: WorldMapProps) => {
     legend.data.setAll([
       {
         name: 'Visited Countries',
-        fill: am5.color(0x174ea6)
+        fill: am5.color(0x9aa8ff)
       },
       {
         name: 'Not Visited',
-        fill: am5.color(0xd8dee7)
+        fill: am5.color(0x202a42)
       }
     ])
 

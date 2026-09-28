@@ -94,11 +94,14 @@ const Home = () => {
 
   return (
     <div className="bg-surface text-ink">
-      <section id="hero" className="section-shell border-b border-border pt-32 md:pt-40">
-        <div className="page-grid items-end">
+      <section id="hero" className="section-shell min-h-[760px] border-b border-white/10 pt-32 md:flex md:min-h-screen md:items-center md:pt-36">
+        <div className="hero-grid absolute inset-0 -z-20" aria-hidden="true" />
+        <div className="liquid-orb -right-24 top-24 -z-10 h-72 w-72 bg-[radial-gradient(circle_at_30%_25%,#b9c4ff,#6373ed_42%,#382d8d_75%,#11152a)] opacity-75 md:right-[8%] md:h-[28rem] md:w-[28rem]" aria-hidden="true" />
+        <div className="liquid-orb -left-20 bottom-0 -z-10 h-48 w-48 bg-[radial-gradient(circle_at_30%_25%,#bafff2,#3abda9_45%,#173b50_76%,#0a1020)] opacity-40 md:left-[6%]" aria-hidden="true" />
+        <div className="page-grid relative items-end">
           <div className="col-span-12 lg:col-span-8">
             <p className="eyebrow">Full-stack engineer · San Francisco</p>
-            <h1 className="display-title mt-6 max-w-4xl">I build dependable software for complex, data-rich work.</h1>
+            <h1 className="display-title mt-6 max-w-4xl">I build dependable software for <span className="bg-gradient-to-r from-primary via-white to-accent bg-clip-text text-transparent">complex, data-rich work.</span></h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-muted md:text-xl">
               I’m Matthew MacEachern, an engineer focused on useful AI products, reliable systems, and clear user experiences.
             </p>
@@ -107,14 +110,14 @@ const Home = () => {
               <a href="/assets/Matthew_Resume.pdf" download className="button-secondary"><Download size={17} /> Download résumé</a>
             </div>
           </div>
-          <dl className="col-span-12 mt-16 grid grid-cols-2 border-y border-border lg:col-span-4 lg:mt-0">
+          <dl className="glass-panel col-span-12 mt-16 grid grid-cols-2 overflow-hidden rounded-3xl lg:col-span-4 lg:mt-0">
             {[
               ['3+', 'Years building products'],
               ['99.9%', 'Platform uptime'],
               ['35+', 'Active platform users'],
               ['30', 'Countries visited'],
             ].map(([value, label]) => (
-              <div key={label} className="border-b border-r border-border p-5 last:border-b-0 even:border-r-0 sm:p-6">
+              <div key={label} className="border-b border-r border-white/10 p-5 last:border-b-0 even:border-r-0 sm:p-6">
                 <dt className="text-sm leading-5 text-muted">{label}</dt>
                 <dd className="mt-2 text-2xl font-semibold tracking-tight text-ink">{value}</dd>
               </div>
@@ -123,7 +126,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="about" className="section-shell border-b border-border">
+      <section id="about" className="section-shell border-b border-white/10">
         <div className="section-heading page-grid">
           <div className="col-span-12 md:col-span-4"><p className="eyebrow">01 / About</p></div>
           <div className="col-span-12 mt-4 md:col-span-8 md:mt-0">
@@ -133,7 +136,7 @@ const Home = () => {
         </div>
         <div className="page-grid mt-12 md:mt-16">
           <div className="col-span-12 md:col-span-4">
-            <img src="/assets/headshot.jpeg" alt="Matthew MacEachern" className="aspect-[4/5] w-full max-w-sm border border-border object-cover" />
+            <div className="glass-panel max-w-sm rounded-[2rem] p-2"><img src="/assets/headshot.jpeg" alt="Matthew MacEachern" className="aspect-[4/5] w-full rounded-[1.55rem] object-cover" /></div>
           </div>
           <div className="col-span-12 mt-10 md:col-span-8 md:mt-0">
             <div className="max-w-2xl space-y-5 text-base leading-7 text-muted md:text-lg md:leading-8">
@@ -155,7 +158,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="projects" className="section-shell border-b border-border bg-panel">
+      <section id="projects" className="section-shell border-b border-white/10 bg-panel">
+        <div className="liquid-orb -right-36 top-28 -z-10 h-80 w-80 bg-[radial-gradient(circle_at_30%_25%,#9aa8ff,#4d5bd3_48%,#221c57_78%,#0b1020)] opacity-25" aria-hidden="true" />
         <div className="section-heading page-grid">
           <div className="col-span-12 md:col-span-4"><p className="eyebrow">02 / Selected work</p></div>
           <div className="col-span-12 mt-4 md:col-span-8 md:mt-0">
@@ -165,8 +169,8 @@ const Home = () => {
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-3">
           {projects.map(project => (
-            <article key={project.title} className="project-card">
-              <img src={project.image} alt="" className="h-48 w-full border-b border-border object-cover" />
+            <article key={project.title} className="project-card group">
+              <img src={project.image} alt="" className="h-48 w-full border-b border-white/10 object-cover opacity-90 transition duration-500 group-hover:opacity-100" />
               <div className="flex flex-1 flex-col p-6">
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary">{project.type}</p>
                 <h3 className="mt-3 text-2xl font-semibold tracking-tight">{project.title}</h3>
@@ -174,7 +178,7 @@ const Home = () => {
                 <ul className="mt-6 flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
                   {project.technologies.map(tech => <li key={tech} className="tag">{tech}</li>)}
                 </ul>
-                <a href={project.url} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 border-t border-border pt-5 text-sm font-semibold text-ink hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <a href={project.url} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 border-t border-white/10 pt-5 text-sm font-semibold text-ink hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
                   Visit project <ExternalLink size={15} aria-hidden="true" />
                 </a>
               </div>
@@ -183,7 +187,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="experience" className="section-shell border-b border-border">
+      <section id="experience" className="section-shell border-b border-white/10">
         <div className="section-heading page-grid">
           <div className="col-span-12 md:col-span-4"><p className="eyebrow">03 / Experience</p></div>
           <div className="col-span-12 mt-4 md:col-span-8 md:mt-0">
@@ -199,7 +203,7 @@ const Home = () => {
               <p className="mt-1 text-sm text-muted">Dean’s List Honours</p>
             </div>
           </div>
-          <div className="col-span-12 mt-10 divide-y divide-border border-y border-border md:col-span-8 md:mt-0">
+          <div className="glass-panel col-span-12 mt-10 divide-y divide-white/10 overflow-hidden rounded-3xl px-6 md:col-span-8 md:mt-0 md:px-8">
             {experiences.map((experience, index) => {
               const open = expandedExperience === index
               return (
@@ -231,7 +235,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section-shell border-b border-border bg-panel" aria-labelledby="travel-title">
+      <section className="section-shell border-b border-white/10 bg-panel" aria-labelledby="travel-title">
         <div className="page-grid items-end">
           <div className="col-span-12 md:col-span-8">
             <p className="eyebrow">Beyond the desk</p>
@@ -239,10 +243,10 @@ const Home = () => {
           </div>
           <p className="col-span-12 mt-5 text-base leading-7 text-muted md:col-span-4 md:mt-0">Travel keeps me curious, adaptable, and attentive to how people navigate different systems.</p>
         </div>
-        <div className="mt-12 border border-border bg-surface p-3 md:mt-16 md:p-6"><WorldMap visitedCountries={visitedCountries} /></div>
+        <div className="glass-panel mt-12 rounded-3xl p-3 md:mt-16 md:p-6"><WorldMap visitedCountries={visitedCountries} /></div>
       </section>
 
-      <section id="contact" className="section-shell bg-ink text-white">
+      <section id="contact" className="section-shell bg-[radial-gradient(circle_at_80%_20%,rgba(98,230,210,.09),transparent_30%),radial-gradient(circle_at_20%_100%,rgba(154,168,255,.13),transparent_38%)] text-white">
         <div className="page-grid items-end">
           <div className="col-span-12 md:col-span-8">
             <p className="eyebrow !text-accent">04 / Contact</p>
@@ -250,7 +254,7 @@ const Home = () => {
             <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">I’m always interested in thoughtful product teams and technically ambitious problems.</p>
           </div>
           <div className="col-span-12 mt-8 md:col-span-4 md:mt-0 md:text-right">
-            <a href="mailto:mattmac743@gmail.com" className="button-primary !bg-white !text-ink hover:!bg-slate-100">Start a conversation <ArrowRight size={17} /></a>
+            <a href="mailto:mattmac743@gmail.com" className="button-primary">Start a conversation <ArrowRight size={17} /></a>
           </div>
         </div>
         <div className="mt-16 flex flex-col justify-between gap-4 border-t border-slate-700 pt-6 text-sm text-slate-400 sm:flex-row">

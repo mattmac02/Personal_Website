@@ -9,9 +9,10 @@
   body {
     @apply m-0 bg-surface font-sans text-ink antialiased;
     text-rendering: optimizeLegibility;
+    background-image: radial-gradient(circle at 50% -20%, rgba(92, 111, 255, 0.12), transparent 36rem);
   }
   * { box-sizing: border-box; }
-  ::selection { @apply bg-accent text-ink; }
+  ::selection { @apply bg-accent text-slate-950; }
   a, button { -webkit-tap-highlight-color: transparent; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -21,20 +22,33 @@
 
 @layer components {
   .container-max { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10; }
-  .section-shell { @apply px-5 py-20 sm:px-8 md:py-28 lg:px-10; }
+  .section-shell { @apply relative isolate overflow-hidden px-5 py-20 sm:px-8 md:py-28 lg:px-10; }
   .section-shell > * { @apply mx-auto max-w-7xl; }
   .page-grid { @apply grid grid-cols-12 gap-x-6 md:gap-x-8; }
-  .section-heading { @apply border-t border-border pt-6; }
+  .section-heading { @apply border-t border-white/10 pt-6; }
   .display-title { @apply text-5xl font-semibold leading-[1.05] tracking-[-0.045em] text-ink sm:text-6xl md:text-7xl; }
   .section-title { @apply text-3xl font-semibold leading-tight tracking-[-0.03em] text-ink md:text-5xl; }
   .section-intro { @apply mt-5 max-w-2xl text-base leading-7 text-muted md:text-lg md:leading-8; }
-  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.14em] text-primary; }
-  .tag { @apply rounded-sm border border-border bg-surface px-2.5 py-1 text-xs font-medium text-muted; }
-  .project-card { @apply flex min-h-full flex-col overflow-hidden border border-border bg-surface transition-colors duration-200 hover:border-slate-400; }
-  .button-primary, .button-secondary, .button-tertiary {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm px-5 py-2.5 text-sm font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.16em] text-primary; }
+  .tag { @apply rounded-full border border-white/10 bg-white/[0.045] px-3 py-1 text-xs font-medium text-muted; }
+  .glass-panel {
+    background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 24px 80px rgba(0,0,0,.28);
+    backdrop-filter: blur(24px) saturate(130%);
   }
-  .button-primary { @apply bg-primary text-white hover:bg-primary-dark active:bg-slate-950; }
-  .button-secondary { @apply border border-border bg-surface text-ink hover:bg-panel active:bg-slate-200; }
-  .button-tertiary { @apply px-3 text-muted hover:bg-panel hover:text-ink active:bg-slate-200; }
+  .project-card { @apply glass-panel flex min-h-full flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20; }
+  .button-primary, .button-secondary, .button-tertiary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface;
+  }
+  .button-primary { @apply bg-primary text-slate-950 shadow-[0_10px_32px_rgba(127,143,242,0.24)] hover:bg-white hover:shadow-[0_12px_36px_rgba(127,143,242,0.32)] active:bg-primary-dark; }
+  .button-secondary { @apply border border-white/15 bg-white/[0.055] text-ink backdrop-blur-xl hover:border-white/25 hover:bg-white/10 active:bg-white/5; }
+  .button-tertiary { @apply px-4 text-muted hover:bg-white/[0.06] hover:text-ink active:bg-white/10; }
+  .hero-grid {
+    background-image: linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: linear-gradient(to bottom, black, transparent 88%);
+  }
+  .liquid-orb { @apply pointer-events-none absolute rounded-full blur-[1px]; filter: saturate(120%); }
+  .liquid-orb::after { content: ''; @apply absolute inset-[1px] rounded-full; background: linear-gradient(145deg, rgba(255,255,255,.44), rgba(255,255,255,.03) 38%, rgba(255,255,255,.12)); box-shadow: inset -18px -24px 40px rgba(9,12,29,.4), inset 12px 12px 24px rgba(255,255,255,.16), 0 30px 100px rgba(73,91,220,.18); }
 }
