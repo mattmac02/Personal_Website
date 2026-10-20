@@ -249,7 +249,7 @@ const Home = () => {
   ]
 
   const visitedCountries = [
-    'MY', 'CA', 'US', 'ID', 'KE', 'TZ', 'SG', 'TH', 'AT', 'HR', 'CZ', 'DE', 'GR', 'HU', 'IE', 'IT', 'NL', 'BQ', 'PL', 'PT', 'SK', 'ES', 'GB', 'BS', 'BZ', 'CR', 'DO', 'MX', 'PA', 'PE'
+    'MY', 'CA', 'US', 'ID', 'KE', 'TZ', 'SG', 'TH', 'AT', 'HR', 'CZ', 'DE', 'GR', 'HU', 'IE', 'IT', 'NL', 'BQ', 'PL', 'PT', 'SK', 'ES', 'GB', 'BS', 'BZ', 'CR', 'DO', 'MX', 'PA', 'PE', 'AR', 'CL', 'PF'
   ]
 
   const categories = [
@@ -593,7 +593,7 @@ const Home = () => {
                 </div>
                 <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-2xl p-4 sm:p-6 border border-purple-500/20 text-center">
                   <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">
-                    5/7
+                    6/7
                   </div>
                   <div className="text-gray-300 text-xs sm:text-sm">World Continents</div>
                 </div>
